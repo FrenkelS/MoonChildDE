@@ -178,6 +178,30 @@ src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/moonchild_shell.dir/build.make CMakeFiles/moonchild_shell.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
 
+src/MoviePlayer.o: src/MoviePlayer.cpp.o
+.PHONY : src/MoviePlayer.o
+
+# target to build an object file
+src/MoviePlayer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/moonchild_shell.dir/build.make CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o
+.PHONY : src/MoviePlayer.cpp.o
+
+src/MoviePlayer.i: src/MoviePlayer.cpp.i
+.PHONY : src/MoviePlayer.i
+
+# target to preprocess a source file
+src/MoviePlayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/moonchild_shell.dir/build.make CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.i
+.PHONY : src/MoviePlayer.cpp.i
+
+src/MoviePlayer.s: src/MoviePlayer.cpp.s
+.PHONY : src/MoviePlayer.s
+
+# target to generate assembly for a file
+src/MoviePlayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/moonchild_shell.dir/build.make CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.s
+.PHONY : src/MoviePlayer.cpp.s
+
 src/Util.o: src/Util.cpp.o
 .PHONY : src/Util.o
 
@@ -2089,6 +2113,9 @@ help:
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
+	@echo "... src/MoviePlayer.o"
+	@echo "... src/MoviePlayer.i"
+	@echo "... src/MoviePlayer.s"
 	@echo "... src/Util.o"
 	@echo "... src/Util.i"
 	@echo "... src/Util.s"

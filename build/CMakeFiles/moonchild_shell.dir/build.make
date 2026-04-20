@@ -100,10 +100,24 @@ CMakeFiles/moonchild_shell.dir/src/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/moonchild_shell.dir/src/Game.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/reinier/Data/sdl/moonchild_portable/src/Game.cpp -o CMakeFiles/moonchild_shell.dir/src/Game.cpp.s
 
+CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
+CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/MoviePlayer.cpp
+CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/MoviePlayer.cpp
+
+CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/reinier/Data/sdl/moonchild_portable/src/MoviePlayer.cpp > CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.i
+
+CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/reinier/Data/sdl/moonchild_portable/src/MoviePlayer.cpp -o CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.s
+
 CMakeFiles/moonchild_shell.dir/src/Util.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/Util.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/Util.cpp
 CMakeFiles/moonchild_shell.dir/src/Util.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/moonchild_shell.dir/src/Util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/moonchild_shell.dir/src/Util.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/Util.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/Util.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/Util.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/Util.cpp
 
 CMakeFiles/moonchild_shell.dir/src/Util.cpp.i: cmake_force
@@ -117,7 +131,7 @@ CMakeFiles/moonchild_shell.dir/src/Util.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/audio.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/audio.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.i: cmake_force
@@ -131,7 +145,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/blitbuf.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/blitbuf.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.i: cmake_force
@@ -145,7 +159,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/fastfile.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/fastfile.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.i: cmake_force
@@ -159,7 +173,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/fastfile.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/movie.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/movie.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/pcxff.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/pcxff.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.i: cmake_force
@@ -187,7 +201,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/pcxff.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/sprite.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/sprite.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.i: cmake_force
@@ -201,7 +215,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/sprite.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/timer.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/timer.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.i: cmake_force
@@ -215,7 +229,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/timer.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/unzip.c
 CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/unzip.c
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.i: cmake_force
@@ -229,7 +243,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/video.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/video.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.i: cmake_force
@@ -243,7 +257,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/video.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/windows.cpp
 CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/windows.cpp
 
 CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.i: cmake_force
@@ -257,7 +271,7 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/windows.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/main.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/main.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/main.cpp
 CMakeFiles/moonchild_shell.dir/src/main.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/moonchild_shell.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/moonchild_shell.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/main.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/main.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/main.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/main.cpp
 
 CMakeFiles/moonchild_shell.dir/src/main.cpp.i: cmake_force
@@ -271,7 +285,7 @@ CMakeFiles/moonchild_shell.dir/src/main.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/anim.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/anim.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.i: cmake_force
@@ -285,7 +299,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/anim.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/asset.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/asset.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.i: cmake_force
@@ -299,7 +313,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/asset.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/asteroid.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/asteroid.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.i: cmake_force
@@ -313,7 +327,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/asteroid.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/basic.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/basic.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.i: cmake_force
@@ -327,7 +341,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/basic.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bat.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bat.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.i: cmake_force
@@ -341,7 +355,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/bat.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bbot.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bbot.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.i: cmake_force
@@ -355,7 +369,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/bbot.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bee.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bee.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.i: cmake_force
@@ -369,7 +383,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/bee.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bolt.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bolt.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.i: cmake_force
@@ -383,7 +397,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/bolt.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bonus.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bonus.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.i: cmake_force
@@ -397,7 +411,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/bonus.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/boss.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/boss.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.i: cmake_force
@@ -411,7 +425,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/boss.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bouncey.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bouncey.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.i: cmake_force
@@ -425,7 +439,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/bouncey.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bullet.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bullet.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.i: cmake_force
@@ -439,7 +453,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/bullet.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bump.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/bump.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.i: cmake_force
@@ -453,7 +467,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/bump.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/cannon.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/cannon.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.i: cmake_force
@@ -467,7 +481,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/cannon.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/chain.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/chain.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.i: cmake_force
@@ -481,7 +495,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/chain.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/claw.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/claw.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.i: cmake_force
@@ -495,7 +509,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/claw.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/cloud.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/cloud.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.i: cmake_force
@@ -509,7 +523,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/cloud.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/diamond.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/diamond.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.i: cmake_force
@@ -523,7 +537,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/diamond.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/doldoler.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/doldoler.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.i: cmake_force
@@ -537,7 +551,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/doldoler.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/editor.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/editor.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.i: cmake_force
@@ -551,7 +565,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/editor.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/element.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/element.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.i: cmake_force
@@ -565,7 +579,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/element.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/elevat.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/elevat.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.i: cmake_force
@@ -579,7 +593,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/elevat.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/glim.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/glim.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.i: cmake_force
@@ -593,7 +607,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/glim.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/globals.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/globals.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.i: cmake_force
@@ -607,7 +621,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/globals.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/goodday.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/goodday.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.i: cmake_force
@@ -621,7 +635,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/goodday.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/gravlift.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/gravlift.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.i: cmake_force
@@ -635,7 +649,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/gravlift.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/gumbal.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/gumbal.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.i: cmake_force
@@ -649,7 +663,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/gumbal.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/hoi.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/hoi.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.i: cmake_force
@@ -663,7 +677,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/hoi.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/ironauto.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/ironauto.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.i: cmake_force
@@ -677,7 +691,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/ironauto.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/ironring.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/ironring.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.i: cmake_force
@@ -691,7 +705,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/ironring.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/levinits.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/levinits.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.i: cmake_force
@@ -705,7 +719,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/levinits.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/lift.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/lift.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.i: cmake_force
@@ -719,7 +733,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/lift.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mc.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mc.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.i: cmake_force
@@ -733,7 +747,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/mc.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/metbal.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/metbal.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.i: cmake_force
@@ -747,7 +761,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/metbal.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/metcan.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/metcan.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.i: cmake_force
@@ -761,7 +775,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/metcan.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mine.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mine.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.i: cmake_force
@@ -775,7 +789,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/mine.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mixer.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mixer.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.i: cmake_force
@@ -789,7 +803,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/mixer.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mouth.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mouth.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.i: cmake_force
@@ -803,7 +817,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/mouth.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mushroom.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/mushroom.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.i: cmake_force
@@ -817,7 +831,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/mushroom.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/objects.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/objects.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.i: cmake_force
@@ -831,7 +845,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/objects.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/paal.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/paal.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.i: cmake_force
@@ -845,7 +859,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/paal.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/plant.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/plant.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.i: cmake_force
@@ -859,7 +873,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/plant.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/plof.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/plof.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.i: cmake_force
@@ -873,7 +887,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/plof.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/prefs.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/prefs.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.i: cmake_force
@@ -887,7 +901,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/prefs.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/ptoei.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/ptoei.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.i: cmake_force
@@ -901,7 +915,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/ptoei.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/punt.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/punt.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.i: cmake_force
@@ -915,7 +929,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/punt.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/robyn.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/robyn.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.i: cmake_force
@@ -929,7 +943,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/robyn.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/rock.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/rock.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.i: cmake_force
@@ -943,7 +957,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/rock.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/rocket.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/rocket.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.i: cmake_force
@@ -957,7 +971,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/rocket.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/score.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/score.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.i: cmake_force
@@ -971,7 +985,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/score.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/scroll.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/scroll.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.i: cmake_force
@@ -985,7 +999,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/scroll.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/seamine.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/seamine.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.i: cmake_force
@@ -999,7 +1013,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/seamine.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/smlheart.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/smlheart.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.i: cmake_force
@@ -1013,7 +1027,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/smlheart.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/snake.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/snake.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.i: cmake_force
@@ -1027,7 +1041,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/snake.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/sneak.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/sneak.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.i: cmake_force
@@ -1041,7 +1055,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/sneak.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/sokoban.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/sokoban.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.i: cmake_force
@@ -1055,7 +1069,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/sokoban.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/sound.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/sound.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.i: cmake_force
@@ -1069,7 +1083,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/sound.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/spies.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/spies.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.i: cmake_force
@@ -1083,7 +1097,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/spies.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/spike.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/spike.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.i: cmake_force
@@ -1097,7 +1111,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/spike.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/stukhout.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/stukhout.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.i: cmake_force
@@ -1111,7 +1125,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/stukhout.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/switsj.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/switsj.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.i: cmake_force
@@ -1125,7 +1139,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/switsj.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/test.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/test.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.i: cmake_force
@@ -1139,7 +1153,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/test.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/trigger.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/trigger.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.i: cmake_force
@@ -1153,7 +1167,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/trigger.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/vgdll.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/vgdll.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.i: cmake_force
@@ -1167,7 +1181,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/vgdll.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/warp.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/warp.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.i: cmake_force
@@ -1181,7 +1195,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/warp.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/weight.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/weight.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.i: cmake_force
@@ -1195,7 +1209,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/weight.cpp.s: cmake_force
 CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.o: CMakeFiles/moonchild_shell.dir/flags.make
 CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.o: /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/wheel.cpp
 CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.o: CMakeFiles/moonchild_shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.o -MF CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.o.d -o CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.o -c /Users/reinier/Data/sdl/moonchild_portable/src/moonchild/wheel.cpp
 
 CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.i: cmake_force
@@ -1210,6 +1224,7 @@ CMakeFiles/moonchild_shell.dir/src/moonchild/wheel.cpp.s: cmake_force
 moonchild_shell_OBJECTS = \
 "CMakeFiles/moonchild_shell.dir/src/Audio.cpp.o" \
 "CMakeFiles/moonchild_shell.dir/src/Game.cpp.o" \
+"CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o" \
 "CMakeFiles/moonchild_shell.dir/src/Util.cpp.o" \
 "CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o" \
 "CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o" \
@@ -1295,6 +1310,7 @@ moonchild_shell_EXTERNAL_OBJECTS =
 
 moonchild_shell: CMakeFiles/moonchild_shell.dir/src/Audio.cpp.o
 moonchild_shell: CMakeFiles/moonchild_shell.dir/src/Game.cpp.o
+moonchild_shell: CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o
 moonchild_shell: CMakeFiles/moonchild_shell.dir/src/Util.cpp.o
 moonchild_shell: CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o
 moonchild_shell: CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o
@@ -1378,8 +1394,13 @@ moonchild_shell: CMakeFiles/moonchild_shell.dir/build.make
 moonchild_shell: /opt/homebrew/Cellar/sdl2/2.32.10/lib/libSDL2.dylib
 moonchild_shell: /opt/homebrew/Cellar/sdl2_mixer/2.8.1_1/lib/libSDL2_mixer.dylib
 moonchild_shell: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libz.tbd
+moonchild_shell: /opt/homebrew/lib/libavformat.dylib
+moonchild_shell: /opt/homebrew/lib/libavcodec.dylib
+moonchild_shell: /opt/homebrew/lib/libavutil.dylib
+moonchild_shell: /opt/homebrew/lib/libswscale.dylib
+moonchild_shell: /opt/homebrew/lib/libswresample.dylib
 moonchild_shell: CMakeFiles/moonchild_shell.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Linking CXX executable moonchild_shell"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/reinier/Data/sdl/moonchild_portable/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Linking CXX executable moonchild_shell"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/moonchild_shell.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Copy assets next to moonchild_shell"
 	/opt/homebrew/bin/cmake -E copy_directory /Users/reinier/Data/sdl/moonchild_portable/assets /Users/reinier/Data/sdl/moonchild_portable/build/assets

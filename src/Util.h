@@ -1,12 +1,10 @@
 #pragma once
 
 char *FullPath(char *filename);
-char *FullMp3Path(char *filename);
+char *FullAudioPath(char *filename);
+char *FullMoviePath(char *filename);
 
 char *FullWritablePath(char *filename);
-
-extern int frmwrk_CenterX;
-extern int frmwrk_CenterY;
 
 extern int g_MouseFlg;
 extern int g_MouseActualFlg;

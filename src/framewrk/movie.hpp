@@ -3,6 +3,7 @@
 #ifndef _MOVIE_HPP
 #define _MOVIE_HPP
 
+class MoviePlayer;
 
 typedef struct {
   s32 x;
@@ -24,7 +25,7 @@ class Cmovie {
 
 public:
   Cmovie    (void);
-  Cmovie    (Caudio *audio);
+  Cmovie    (Caudio *audio, MoviePlayer *moviePlayer);
   ~Cmovie   (void);
 
   Smack    *open(char *filename);
@@ -55,6 +56,7 @@ private:
 public:
     char *videoFilename;
     bool  videoReady;
+    MoviePlayer *moviePlayer;
 
     
 };

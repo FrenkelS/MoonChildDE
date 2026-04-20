@@ -75,7 +75,7 @@ int	  FirstTimeShowCredzFlg;
 
 // define if movies should be shown
 
-//#define MOVIES
+#define MOVIES
 
 
 /*
@@ -678,7 +678,7 @@ char creds4text[] = // "--------------------"
                       "=     POSSIBLE      "
                       "                    "
                       "=    MOON CHILD     "
-                      "=  COPYRIGHT 2018   "
+                      "=        BY         "
                       "+REINIER VAN VLIET  "
                       "+   METIN SEVEN     "
                       "= RAMON BRAUMULLER  "

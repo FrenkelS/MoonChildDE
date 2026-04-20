@@ -42,6 +42,21 @@ char *FullAudioPath(char *filename) {
   return buffer;
 }
 
+char *FullMoviePath(char *filename) {
+  static char buffer[4096];
+  if (!filename) {
+    return nullptr;
+  }
+  char *base = SDL_GetBasePath();
+  if (base) {
+    snprintf(buffer, sizeof(buffer), "%sassets/movies/%s", base, filename);
+    SDL_free(base);
+  } else {
+    snprintf(buffer, sizeof(buffer), "assets/movies/%s", filename);
+  }
+  return buffer;
+}
+
 // Called by the game to get the full path to a writable file (Only hiscore file)
 char *FullWritablePath(char *filename) {
   static char buffer[4096];

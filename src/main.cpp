@@ -1,5 +1,6 @@
 #include "Audio.h"
 #include "Game.h"
+#include "MoviePlayer.h"
 #include "Util.h"
 
 #include <SDL.h>
@@ -25,9 +26,19 @@ Uint64 nextTickTime = 0;
 SDL_Window *window = nullptr;
 SDL_Renderer *renderer = nullptr;
 SDL_Texture *frameTexture = nullptr;
+MoviePlayer *moviePlayer = nullptr;
 
 uint8_t *pixelBuffer = nullptr;
 int pixelBufferPitch = 0;
+
+bool movieFinishedNaturally = false;
+bool movieDoneSignal = false;
+
+void onMovieDone(bool naturalEnd, void *userData) {
+  (void)userData;
+  movieFinishedNaturally = naturalEnd;
+  movieDoneSignal = true;
+}
 
 void waitUntilNextTickBoundary() {
   for (;;) {
@@ -86,10 +97,18 @@ bool initSDL() {
   pixelBuffer = new uint8_t[pixelBufferPitch * screenHeight];
   memset(pixelBuffer, 0, pixelBufferPitch * screenHeight);
 
+  moviePlayer = new MoviePlayer();
+
   return true;
 }
 
 void shutdownSDL() {
+  if (moviePlayer) {
+    moviePlayer->stop(false);
+    delete moviePlayer;
+    moviePlayer = nullptr;
+  }
+
   delete[] pixelBuffer;
   pixelBuffer = nullptr;
 
@@ -148,7 +167,7 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  initMoonChild(pixelBuffer, screenWidth, screenHeight);
+  initMoonChild(pixelBuffer, screenWidth, screenHeight, moviePlayer);
 
   bool running = true;
   while (running) {
@@ -158,6 +177,10 @@ int main(int argc, char **argv) {
         running = false;
       }
       if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
+        if (moviePlayer && moviePlayer->isPlaying()) {
+          moviePlayer->stop(false);
+          continue;
+        }
         switch (e.key.keysym.scancode) {
           case SDL_SCANCODE_UP:
             keyDown(SDL_SCANCODE_UP);
@@ -183,8 +206,24 @@ int main(int argc, char **argv) {
           case SDL_SCANCODE_P:
             keyDown(SDL_SCANCODE_P);
           break;
+          case SDL_SCANCODE_M: {
+            char introMoviePath[] = "assets/movies/intro.mp4";
+            bool movieStarted = moviePlayer->playFile(introMoviePath, onMovieDone, nullptr);
+            if (!movieStarted) {
+              printf("movie: failed to play %s\n", introMoviePath);
+            } else {
+              printf("movie: playing %s\n", introMoviePath);
+            }
+            break;
+          }
           default:
             break;
+        }
+      }
+      if (moviePlayer && moviePlayer->isPlaying()) {
+        if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_FINGERDOWN) {
+          moviePlayer->stop(false);
+          continue;
         }
       }
       if (e.type == SDL_KEYUP && e.key.repeat == 0) {
@@ -227,7 +266,20 @@ int main(int argc, char **argv) {
     Uint8 *keyboardState = (Uint8 *)SDL_GetKeyboardState(&keyCount);
     (void)keyCount;
 
-    gameTick(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch, keyboardState);
+    if (moviePlayer && moviePlayer->isPlaying()) {
+      moviePlayer->update(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch);
+    } else {
+      gameTick(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch, keyboardState);
+    }
+
+    if (movieDoneSignal) {
+      movieDoneSignal = false;
+      if (movieFinishedNaturally) {
+        printf("movie: playback finished\n");
+      } else {
+        printf("movie: playback stopped by input\n");
+      }
+    }
 
     presentFrame();
 

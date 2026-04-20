@@ -123,4 +123,6 @@ CMakeFiles/moonchild_shell.dir/src/framewrk/movie.cpp.o: \
   /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/pcxff.hpp \
   /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/movie.hpp \
   /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/fastfile.h \
-  /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/ffent.h
+  /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/ffent.h \
+  /Users/reinier/Data/sdl/moonchild_portable/src/framewrk/../MoviePlayer.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdint

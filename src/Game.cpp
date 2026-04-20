@@ -50,11 +50,11 @@ void fillTestPattern(uint8_t *pixels, int width, int height, int pitch) {
 
 }  // namespace
 
-void initMoonChild(unsigned char *pixelBuffer, int width, int height) {
+void initMoonChild(unsigned char *pixelBuffer, int width, int height, MoviePlayer *moviePlayer) {
 	video = new Cvideo();
 	audio = new Caudio();  // create audio AFTER window is created!
 	timer = new Ctimer();  // Create timer facilities
-	movie = new Cmovie(audio);  // Initiate movie playback features
+	movie = new Cmovie(audio, moviePlayer);  // Initiate movie playback features
 	
 	g_SettingsFlg = 0;	//we starten met het settings window off 
 	gbGameLoop = 1;

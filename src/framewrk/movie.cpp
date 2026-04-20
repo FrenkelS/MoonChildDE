@@ -1,18 +1,29 @@
 #include "frm_int.hpp"
-
+#include "../MoviePlayer.h"
 // videos of Moon Child were in a proprietary format called Smackplayer'. However that doesn't exist anymore so videos not supported.
 // hover I leave this class here so you'll see the point where the movie get's called... It just doesn't play anything now
 
+extern char *FullMoviePath( char *a_File );
+bool movieFinishedNaturally = false;
+bool movieDoneSignal = false;
 
-Cmovie::Cmovie(Caudio *audio)
+void onMovieDone(bool naturalEnd, void *userData) {
+  (void)userData;
+  movieFinishedNaturally = naturalEnd;
+  movieDoneSignal = true;
+}
+
+Cmovie::Cmovie(Caudio *audio, MoviePlayer *moviePlayer)
 {
     this->videoFilename = NULL;
+    this->moviePlayer = moviePlayer;
 }
 
 
 Cmovie::Cmovie( void )
 {
     this->videoFilename = NULL;
+    this->moviePlayer = nullptr;
 }
 
 Cmovie::~Cmovie(void)
@@ -25,31 +36,31 @@ Smack *Cmovie::open(char *filename)
     printf("trying to play movie: %s", filename);
     if(strcmp(filename, (char *)"intro.smk")==0)
     {
-        this->videoFilename = "intro";
+        this->videoFilename = "intro.mp4";
         this->videoReady = false;
         return (Smack *)1;
     }
     if(strcmp(filename, (char *)"bumper12.smk")==0)
     {
-        this->videoFilename = "bumper12";
+        this->videoFilename = "bumper12.mp4";
         this->videoReady = false;
         return (Smack *)1;
     }
     if(strcmp(filename, (char *)"bumper23.smk")==0)
     {
-        this->videoFilename = "bumper23";
+        this->videoFilename = "bumper23.mp4";
         this->videoReady = false;
         return (Smack *)1;
     }
     if(strcmp(filename, (char *)"bumper34.smk")==0)
     {
-        this->videoFilename = "bumper34";
+        this->videoFilename = "bumper34.mp4";
         this->videoReady = false;
         return (Smack *)1;
     }
     if(strcmp(filename, (char *)"extro.smk")==0)
     {
-        this->videoFilename = "extro";
+        this->videoFilename = "extro.mp4";
         this->videoReady = false;
         return (Smack *)1;
     }
@@ -62,15 +73,19 @@ Smack *Cmovie::open(char *filename)
 
 void   Cmovie::close(Smack *smk)
 {
+    movieDoneSignal = true;
+    moviePlayer->stop(false);
 }
 
 void   Cmovie::playtovideo(Smack *smk, Cvideo *video, Cblitbuf *hulpbuf, UINT16 zoomfactor)
 {
+    movieDoneSignal = false;
+    moviePlayer->playFile(FullMoviePath(this->videoFilename), onMovieDone, nullptr);
 }
 
 UINT16 Cmovie::stillplaying(void)
 {
-	return !videoReady;
+	return !movieDoneSignal;
 }
 
 void   Cmovie::movieplay(void)

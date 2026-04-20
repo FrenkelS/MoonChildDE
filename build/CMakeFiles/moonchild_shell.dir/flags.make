@@ -5,7 +5,7 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/reinier/Data/sdl/moonchild_portable/src -I/Users/reinier/Data/sdl/moonchild_portable/src/moonchild -I/Users/reinier/Data/sdl/moonchild_portable/src/framewrk -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2 -isystem /opt/homebrew/Cellar/sdl2_mixer/2.8.1_1/include/SDL2
+C_INCLUDES = -I/Users/reinier/Data/sdl/moonchild_portable/src -I/Users/reinier/Data/sdl/moonchild_portable/src/moonchild -I/Users/reinier/Data/sdl/moonchild_portable/src/framewrk -I/opt/homebrew/include -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2 -isystem /opt/homebrew/Cellar/sdl2_mixer/2.8.1_1/include/SDL2
 
 C_FLAGSarm64 = -std=gnu11 -arch arm64
 
@@ -13,7 +13,7 @@ C_FLAGS = -std=gnu11 -arch arm64
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/reinier/Data/sdl/moonchild_portable/src -I/Users/reinier/Data/sdl/moonchild_portable/src/moonchild -I/Users/reinier/Data/sdl/moonchild_portable/src/framewrk -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2 -isystem /opt/homebrew/Cellar/sdl2_mixer/2.8.1_1/include/SDL2
+CXX_INCLUDES = -I/Users/reinier/Data/sdl/moonchild_portable/src -I/Users/reinier/Data/sdl/moonchild_portable/src/moonchild -I/Users/reinier/Data/sdl/moonchild_portable/src/framewrk -I/opt/homebrew/include -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2 -isystem /opt/homebrew/Cellar/sdl2_mixer/2.8.1_1/include/SDL2
 
 CXX_FLAGSarm64 = -std=gnu++17 -arch arm64
 

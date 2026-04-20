@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/reinier/Data/sdl/moonchild_portable/src/framewrk/unzip.c" "CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o" "gcc" "CMakeFiles/moonchild_shell.dir/src/framewrk/unzip.c.o.d"
   "/Users/reinier/Data/sdl/moonchild_portable/src/Audio.cpp" "CMakeFiles/moonchild_shell.dir/src/Audio.cpp.o" "gcc" "CMakeFiles/moonchild_shell.dir/src/Audio.cpp.o.d"
   "/Users/reinier/Data/sdl/moonchild_portable/src/Game.cpp" "CMakeFiles/moonchild_shell.dir/src/Game.cpp.o" "gcc" "CMakeFiles/moonchild_shell.dir/src/Game.cpp.o.d"
+  "/Users/reinier/Data/sdl/moonchild_portable/src/MoviePlayer.cpp" "CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o" "gcc" "CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o.d"
   "/Users/reinier/Data/sdl/moonchild_portable/src/Util.cpp" "CMakeFiles/moonchild_shell.dir/src/Util.cpp.o" "gcc" "CMakeFiles/moonchild_shell.dir/src/Util.cpp.o.d"
   "/Users/reinier/Data/sdl/moonchild_portable/src/framewrk/audio.cpp" "CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o" "gcc" "CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o.d"
   "/Users/reinier/Data/sdl/moonchild_portable/src/framewrk/blitbuf.cpp" "CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o" "gcc" "CMakeFiles/moonchild_shell.dir/src/framewrk/blitbuf.cpp.o.d"

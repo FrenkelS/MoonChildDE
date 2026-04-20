@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/moonchild_shell.dir/src/Audio.cpp.o.d"
   "CMakeFiles/moonchild_shell.dir/src/Game.cpp.o"
   "CMakeFiles/moonchild_shell.dir/src/Game.cpp.o.d"
+  "CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o"
+  "CMakeFiles/moonchild_shell.dir/src/MoviePlayer.cpp.o.d"
   "CMakeFiles/moonchild_shell.dir/src/Util.cpp.o"
   "CMakeFiles/moonchild_shell.dir/src/Util.cpp.o.d"
   "CMakeFiles/moonchild_shell.dir/src/framewrk/audio.cpp.o"
