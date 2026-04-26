@@ -1,3 +1,8 @@
+Go to the [dos](/src/dos) directory for Moon Child DE (DOS Edition).
+What follows is the original `README.md`.
+
+
+
 #  Moon Child
 SDL portable version
 

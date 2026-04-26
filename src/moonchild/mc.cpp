@@ -6305,6 +6305,9 @@ HEARTBEAT_FN MC_preptitlesequence(void)
   if (rc == 1) return (HEARTBEAT_FN) MC_showentername;    // highscore entry
 
 
+#if defined __DJGPP__
+  return (HEARTBEAT_FN) MC_showtitlesequence1;
+#else
   if(FirstTimeShowCredzFlg==0)
   {
 	  prevplace = 0;
@@ -6319,6 +6322,7 @@ HEARTBEAT_FN MC_preptitlesequence(void)
   {
 	  return (HEARTBEAT_FN) MC_showtitlesequence1;    // no highscore crap  
   }
+#endif
 }
 
 
