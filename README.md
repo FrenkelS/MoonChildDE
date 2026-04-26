@@ -1,4 +1,4 @@
-Go to the [dos](/src/dos) directory for Moon Child DE (DOS Edition).
+Go to the [src/dos](/src/dos) directory for Moon Child DE (DOS Edition).
 What follows is the original `README.md`.
 
 
