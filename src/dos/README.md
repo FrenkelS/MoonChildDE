@@ -3,6 +3,7 @@
 
 Moon Child DE (DOS Edition) is a source port of Moon Child for
 32-bit DOS computers with 640x480 32-bit color graphics and no sound.
+Download Moon Child DE [here](https://github.com/FrenkelS/MoonChildDE/releases).
 
 ## Controls:
 |Action            |Keys      |
