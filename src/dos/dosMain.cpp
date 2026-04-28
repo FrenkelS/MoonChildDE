@@ -269,22 +269,14 @@ void presentFrame() {
 }
 
 
-static uint32_t SDL_GetMouseState(float *x, float *y) {
-  return 0;
-}
-
-
-#define SDL_BUTTON_LMASK 1u
-
-
 void syncMouse() {
   static int prevLeft = 0;
-  float mx = 0;
-  float my = 0;
-  uint32_t buttons = SDL_GetMouseState(&mx, &my);
+  int mx = 0;
+  int my = 0;
+  uint32_t buttons = 0;
   g_MouseXCurrent = mx;
   g_MouseYCurrent = my;
-  int left = (buttons & SDL_BUTTON_LMASK) ? 1 : 0;
+  int left = 0;
   g_MouseFlg = left;
   g_MouseActualFlg = left;
   if (left != 0 && prevLeft == 0) {

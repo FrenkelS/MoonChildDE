@@ -3,7 +3,7 @@ if "%DJDIR%" == "" goto error
 mkdir release
 
 set CFLAGS=-march=i386
-set CFLAGS=%CFLAGS% -Ofast -fomit-frame-pointer -flto -fwhole-program -Wno-attributes
+set CFLAGS=%CFLAGS% -Ofast -fomit-frame-pointer -flto -fwhole-program -Wno-attributes -fno-exceptions
 
 @set GLOBOBJS=
 @set GLOBOBJS=%GLOBOBJS% dosAudio.cpp
