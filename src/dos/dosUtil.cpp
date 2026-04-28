@@ -1,95 +1,57 @@
 #include <cstdio>
+#include <stdint.h>
 #include "Util.h"
 #include "framewrk/frm_int.hpp"
-
-namespace {
-
-char prefOrg[] = "moonchild";
-char prefApp[] = "moonchild_shell";
-
-}  // namespace
-
-
-static const char *SDL_GetBasePath(void) {
-  return NULL;
-}
-
-
-static void SDL_free(void *mem) {
-}
 
 
 // Called by the game to get the full path to a file
 char *FullPath(char *filename) {
-  static char buffer[4096];
+  static char buffer[32];
   if (!filename) {
     return nullptr;
   }
-  const char *base = SDL_GetBasePath();
-  if (base) {
-    snprintf(buffer, sizeof(buffer), "%sassets/moonchild/%s", base, filename);
-    SDL_free((void*)base);
-  } else {
-    snprintf(buffer, sizeof(buffer), "assets/moonchld/%s", filename);
-  }
+  
+  snprintf(buffer, sizeof(buffer), "assets/moonchld/%s", filename);
   return buffer;
 }
+
 
 // Called by the game to get the full path to an audio file
 char *FullAudioPath(char *filename) {
-  static char buffer[4096];
+  static char buffer[32];
   if (!filename) {
     return nullptr;
   }
-  const char *base = SDL_GetBasePath();
-  if (base) {
-    snprintf(buffer, sizeof(buffer), "%sassets/audio/%s", base, filename);
-    SDL_free((void*)base);
-  } else {
-    snprintf(buffer, sizeof(buffer), "assets/audio/%s", filename);
-  }
+
+  snprintf(buffer, sizeof(buffer), "assets/audio/%s", filename);
   return buffer;
 }
+
 
 char *FullMoviePath(char *filename) {
-  static char buffer[4096];
+  static char buffer[32];
   if (!filename) {
     return nullptr;
   }
-  const char *base = SDL_GetBasePath();
-  if (base) {
-    snprintf(buffer, sizeof(buffer), "%sassets/movies/%s", base, filename);
-    SDL_free((void*)base);
-  } else {
-    snprintf(buffer, sizeof(buffer), "assets/movies/%s", filename);
-  }
+
+  snprintf(buffer, sizeof(buffer), "assets/movies/%s", filename);
   return buffer;
-}
-
-
-static char *SDL_GetPrefPath(const char *org, const char *app) {
-  return NULL;
 }
 
 
 // Called by the game to get the full path to a writable file (Only hiscore file)
 char *FullWritablePath(char *filename) {
-  static char buffer[4096];
+  static char buffer[32];
   if (!filename) {
     return nullptr;
   }
-  char *pref = SDL_GetPrefPath(prefOrg, prefApp);
-  if (pref) {
-    snprintf(buffer, sizeof(buffer), "%smoonchild/%s", pref, filename);
-    SDL_free(pref);
-  } else {
-    snprintf(buffer, sizeof(buffer), "./moonchld/%s", filename);
-  }
+
+  snprintf(buffer, sizeof(buffer), "./moonchld/%s", filename);
   return buffer;
 }
 
+
 // Internal method (only used here) to load a TGA file
-typedef unsigned char BYTE;
 unsigned short*LoadTGA(char *FileName)
 {
 	char logbuf[100];
@@ -97,7 +59,7 @@ unsigned short*LoadTGA(char *FileName)
 //	LOG(logbuf);
     
 	// load targa file
-	BYTE* tgabuff = new BYTE[20];
+	uint8_t* tgabuff = new uint8_t[20];
 	bool OK = true;
   FILE *tga = fopen( FullPath(FileName), "rb" );
   if (!tga) return 0;
@@ -139,7 +101,7 @@ unsigned short*LoadTGA(char *FileName)
 	h = TgaHeight;
 	unsigned short *dest;
 	int size = w * 4 * h + 20;
-	tgabuff = new BYTE[size];
+	tgabuff = new uint8_t[size];
 	dest = new unsigned short[w*h];  // hier komt uitgepakte plaatje
   
   // replace the gzip loading by normal loading
@@ -214,6 +176,7 @@ unsigned short*LoadTGA(char *FileName)
 //	LOG("tga success\n");
 	return dest;
 }
+
 
 // Called by the game to show a picture (tga)
 void ShowPicture(char *FileName)
