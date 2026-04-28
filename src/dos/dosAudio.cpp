@@ -3,7 +3,17 @@
 
 #define IMPLEMENT_ME() I_Error("Implement me: %s: %i\n", __FILE__, __LINE__);
 
-[[noreturn]] void I_Error(const char *error, ...);
+
+#if defined __DJGPP__
+#define _Noreturn [[noreturn]]
+#elif defined __WATCOMC__
+#define _Noreturn __declspec(aborts)
+#else
+#error unsupported compiler
+#endif
+
+
+_Noreturn void I_Error(const char *error, ...);
 
 
 bool initAudio() {

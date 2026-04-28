@@ -1,9 +1,48 @@
+#include <conio.h>
 #include <dos.h>
+#include <string.h>
+#include <time.h>
+
+#include <SDL.h>
+
+
+#if defined __DJGPP__
 #include <dpmi.h>
 #include <go32.h>
-#include <SDL.h>
-#include <time.h>
 #include <sys/nearptr.h>
+
+#define __far
+
+//DJGPP doesn't inline inp, outp and outpw,
+//but it does inline inportb, outportb and outportw
+#define inp(port)       inportb(port)
+#define outp(port,data) outportb(port,data)
+
+#define __interrupt
+
+#define replaceInterrupt(OldInt,NewInt,vector,handler)				\
+_go32_dpmi_get_protected_mode_interrupt_vector(vector, &OldInt);	\
+																	\
+NewInt.pm_selector = _go32_my_cs(); 								\
+NewInt.pm_offset = (int32_t)handler;								\
+_go32_dpmi_allocate_iret_wrapper(&NewInt);							\
+_go32_dpmi_set_protected_mode_interrupt_vector(vector, &NewInt)
+
+#define restoreInterrupt(vector,OldInt,NewInt)						\
+_go32_dpmi_set_protected_mode_interrupt_vector(vector, &OldInt);	\
+_go32_dpmi_free_iret_wrapper(&NewInt);
+#elif defined __WATCOMC__
+#define __far
+
+#define __djgpp_nearptr_enable()
+#define __djgpp_conventional_base 0
+
+#define replaceInterrupt(OldInt,NewInt,vector,handler)	\
+OldInt = _dos_getvect(vector);							\
+_dos_setvect(vector, handler)
+
+#define restoreInterrupt(vector,OldInt,NewInt)	_dos_setvect(vector,OldInt)
+#endif
 
 
 //#define DEBUG
@@ -20,28 +59,26 @@ static uint8_t keyboardqueue[KBDQUEUESIZE];
 static int kbdtail, kbdhead;
 static bool isKeyboardIsrSet = false;
 
+#if defined __DJGPP__
 static _go32_dpmi_seginfo oldkeyboardisr, newkeyboardisr;
+#else
+static void __interrupt __far (*oldkeyboardisr)(void);
+#endif
 
 
-static void I_KeyboardISR(void)	
+static void __interrupt __far I_KeyboardISR(void)	
 {
   // Get the scan code
-  keyboardqueue[kbdhead & (KBDQUEUESIZE - 1)] = inportb(0x60);
+  keyboardqueue[kbdhead & (KBDQUEUESIZE - 1)] = inp(0x60);
   kbdhead++;
 
   // acknowledge the interrupt
-  outportb(0x20, 0x20);
+  outp(0x20, 0x20);
 }
 
 
-bool SDL_Init(SDL_InitFlags) {
-  _go32_dpmi_get_protected_mode_interrupt_vector(KEYBOARDINT, &oldkeyboardisr);
-
-  newkeyboardisr.pm_selector = _go32_my_cs();
-  newkeyboardisr.pm_offset   = (uint32_t)I_KeyboardISR;
-  _go32_dpmi_allocate_iret_wrapper(&newkeyboardisr);
-  _go32_dpmi_set_protected_mode_interrupt_vector(KEYBOARDINT, &newkeyboardisr);
-
+bool SDL_Init(SDL_InitFlags flags) {
+  replaceInterrupt(oldkeyboardisr, newkeyboardisr, KEYBOARDINT, I_KeyboardISR);
   isKeyboardIsrSet = true;
 
   return true;
@@ -50,8 +87,7 @@ bool SDL_Init(SDL_InitFlags) {
 
 void SDL_Quit(void) {
   if (isKeyboardIsrSet) {
-    _go32_dpmi_set_protected_mode_interrupt_vector(KEYBOARDINT, &oldkeyboardisr);
-    _go32_dpmi_free_iret_wrapper(&newkeyboardisr);
+    restoreInterrupt(KEYBOARDINT, oldkeyboardisr, newkeyboardisr);
   }
 }
 
@@ -130,12 +166,12 @@ bool SDL_PollEvent(SDL_Event *event) {
 }
 
 
-Uint32 SDL_GetMouseState(float*, float*) {
+Uint32 SDL_GetMouseState(float *x, float *y) {
   return 0;
 }
 
 
-const bool *SDL_GetKeyboardState(int*) {
+const bool *SDL_GetKeyboardState(int *numkeys) {
   return NULL;
 }
 
@@ -145,7 +181,7 @@ const bool *SDL_GetKeyboardState(int*) {
 // Timer code
 //
 
-#if defined DEBUG
+#if defined DEBUG || defined __WATCOMC__
 Uint64 SDL_GetPerformanceFrequency(void) {
   return 60;
 }
@@ -182,36 +218,42 @@ struct SDL_Window {
 };
 
 
-SDL_Window *SDL_CreateWindow(const char*, int w, int h, SDL_WindowFlags) {
-  __dpmi_regs r;
+static uint8_t *videomemory;
+
+
+SDL_Window *SDL_CreateWindow(const char *title, int w, int h, SDL_WindowFlags flags) {
+  static SDL_Window window;
+
+  union REGS r;
 
 #if defined DEBUG
-  __djgpp_nearptr_enable();
-  r.x.ax = 0x0013;
+  r.w.ax = 0x0013;
 #else
-  r.x.ax = 0x4F02;
-  r.x.bx = 0x112;
+  r.w.ax = 0x4F02;
+  r.w.bx = 0x112;
 #endif
-  __dpmi_int(0x10, &r);
+  int386(0x10, &r, &r);
 
-  static SDL_Window window;  
+  __djgpp_nearptr_enable();
+  videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
   return &window;
 }
 
 
-void SDL_DestroyWindow(SDL_Window*) {
-  __dpmi_regs r;
-  r.x.ax = 0x0003;
-  __dpmi_int(0x10, &r);
+void SDL_DestroyWindow(SDL_Window *window) {
+  union REGS r;
+  r.w.ax = 0x0003;
+  int386(0x10, &r, &r);
 }
 
 
-bool SDL_UpdateTexture(SDL_Texture*, const SDL_Rect*, const void *pixels, int pitch) {
+bool SDL_UpdateTexture(SDL_Texture *texture, const SDL_Rect *rect, const void *pixels, int pitch) {
 #if defined DEBUG
   uint8_t *src = (uint8_t*)pixels;
-  uint8_t *dst = (uint8_t*)0xA0000 + __djgpp_conventional_base;
-  for (int y = 0; y < 200; y++) {
-    for (int x = 0; x < 320; x++) {
+  uint8_t *dst = videomemory;
+  int x, y;
+  for (y = 0; y < 200; y++) {
+    for (x = 0; x < 320; x++) {
       uint8_t r = *src;
       *dst++ = 16 + r / 16;
       src += 8;
@@ -225,15 +267,16 @@ bool SDL_UpdateTexture(SDL_Texture*, const SDL_Rect*, const void *pixels, int pi
   uint8_t *memory_buffer = (uint8_t*)pixels;
 
   while (todo > 0) {
-    __dpmi_regs r;
-    r.x.ax = 0x4F05;
-    r.x.bx = 0;
-    r.x.dx = bank_number;
-    __dpmi_int(0x10, &r);
+    int copy_size;
+    union REGS r;
+    r.w.ax = 0x4F05;
+    r.w.bx = 0;
+    r.w.dx = bank_number;
+    int386(0x10, &r, &r);
 
-    int copy_size = todo > bank_size ? bank_size : todo;
+    copy_size = todo > bank_size ? bank_size : todo;
 
-    dosmemput(memory_buffer, copy_size, 0xA0000);
+    memcpy(videomemory, memory_buffer, copy_size);
 
     todo          -= copy_size;
     memory_buffer += copy_size;
@@ -250,42 +293,42 @@ struct SDL_Renderer {
 };
 
 
-SDL_Renderer *SDL_CreateRenderer(SDL_Window*, const char*) {
+SDL_Renderer *SDL_CreateRenderer(SDL_Window *window, const char *name) {
   static SDL_Renderer renderer;
   return &renderer;
 }
 
 
-void SDL_DestroyRenderer(SDL_Renderer*) {
+void SDL_DestroyRenderer(SDL_Renderer *renderer) {
 }
 
 
-SDL_Texture *SDL_CreateTexture(SDL_Renderer*, SDL_PixelFormat, SDL_TextureAccess, int, int) {
+SDL_Texture *SDL_CreateTexture(SDL_Renderer *renderer, SDL_PixelFormat format, SDL_TextureAccess access, int w, int h) {
   static SDL_Texture texture;
   return &texture;
 }
 
 
-void SDL_DestroyTexture(SDL_Texture*) {
+void SDL_DestroyTexture(SDL_Texture *texture) {
 }
 
 
-bool SDL_SetTextureBlendMode(SDL_Texture*, SDL_BlendMode) {
+bool SDL_SetTextureBlendMode(SDL_Texture *texture, SDL_BlendMode blendMode) {
   return false;
 }
 
 
-bool SDL_RenderClear(SDL_Renderer*) {
+bool SDL_RenderClear(SDL_Renderer *renderer) {
   return false;
 }
 
 
-bool SDL_RenderTexture(SDL_Renderer*, SDL_Texture*, const SDL_FRect*, const SDL_FRect*) {
+bool SDL_RenderTexture(SDL_Renderer *renderer, SDL_Texture *texture, const SDL_FRect *srcrect, const SDL_FRect *dstrect) {
   return false;
 }
 
 
-bool SDL_RenderPresent(SDL_Renderer*) {
+bool SDL_RenderPresent(SDL_Renderer *renderer) {
   return false;
 }
 
@@ -295,7 +338,7 @@ bool SDL_RenderPresent(SDL_Renderer*) {
 // IO code
 //
 
-char *SDL_GetPrefPath(const char*, const char*) {
+char *SDL_GetPrefPath(const char *org, const char *app) {
   return NULL;
 }
 
@@ -305,7 +348,7 @@ const char *SDL_GetBasePath(void) {
 }
 
 
-void SDL_free(void*) {
+void SDL_free(void *mem) {
 }
 
 

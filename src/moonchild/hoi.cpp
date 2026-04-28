@@ -1776,7 +1776,7 @@ int hoi_live (OBJECT *object, UINT32 param)
 		  y = object->y+(object->sizey&15) + (t<<4);
 		  x &= 0xfff0;
 		  y &= 0xfff0;
-		  player1.loadedmap->map[(y*player1.loadedmap->mapsizex/32/32)+(x/32)] = 0 ;36;
+		  player1.loadedmap->map[(y*player1.loadedmap->mapsizex/32/32)+(x/32)] = 0 ;//36;
 		  colmap[(y*player1.loadedmap->mapsizex/16/16)+(x/16)] = 0;
 		  if (object == hoi)
 		    {
@@ -1808,7 +1808,7 @@ int hoi_live (OBJECT *object, UINT32 param)
             int mapOffset = (y*player1.loadedmap->mapsizex/32/32)+(x/32);
             int mapColOffset = (y*player1.loadedmap->mapsizex/16/16)+(x/16);
             
-		  player1.loadedmap->map[mapOffset] = 0 ;36;
+		  player1.loadedmap->map[mapOffset] = 0 ;//36;
 		  colmap[mapColOffset] = 0;
 
             //remember blackdiamond pos. so if level is restarted, we can remove blackdiamond already
@@ -1834,7 +1834,7 @@ int hoi_live (OBJECT *object, UINT32 param)
 		      y = object->y+(object->sizey&15) + (t<<4);
 		      x &= 0xfff0;
 		      y &= 0xfff0;
-		      player1.loadedmap->map[(y*player1.loadedmap->mapsizex/32/32)+(x/32)] = 0 ;36;
+		      player1.loadedmap->map[(y*player1.loadedmap->mapsizex/32/32)+(x/32)] = 0 ;//36;
 		      colmap[(y*player1.loadedmap->mapsizex/16/16)+(x/16)] = 0;
 		      hoiblood->hoi_caps->maxspd = 250;
                   play_bonus(object->x, object->y);
@@ -1847,7 +1847,7 @@ int hoi_live (OBJECT *object, UINT32 param)
 		  y = object->y+(object->sizey&15) + (t<<4);
 		  x &= 0xfff0;
 		  y &= 0xfff0;
-		  player1.loadedmap->map[(y*player1.loadedmap->mapsizex/32/32)+(x/32)] = 0 ;36;
+		  player1.loadedmap->map[(y*player1.loadedmap->mapsizex/32/32)+(x/32)] = 0 ;//36;
 		  colmap[(y*player1.loadedmap->mapsizex/16/16)+(x/16)] = 0;
 		  if (object == hoi)
 		    {

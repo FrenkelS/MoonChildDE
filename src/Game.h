@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 
-#include <cstdint>
+#include <stdint.h>
 class MoviePlayer;
 
 void gameTick(uint8_t *pixels, int width, int height, int pitch, Uint8 *keyboardState);

@@ -35,16 +35,18 @@ int cachesize;
 
 extern char *FullPath2( char *a_File );
 
-//#define LOG(x)  { \
-//	  FILE *log; \
-//	  log = fopen(FullPath2("log.txt"),"a"); \
-//	  if(log) \
-//{ \
-//		  fwrite((x), strlen(x), 1, log); \
-//		  fclose(log); \
-//		  fflush(log); \
-//} \
-//} 
+/*
+#define LOG(x)  { \
+	  FILE *log; \
+	  log = fopen(FullPath2("log.txt"),"a"); \
+	  if(log) \
+{ \
+		  fwrite((x), strlen(x), 1, log); \
+		  fclose(log); \
+		  fflush(log); \
+} \
+} 
+*/
 
 #define LOG(x)
 

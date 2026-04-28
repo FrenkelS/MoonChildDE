@@ -6305,7 +6305,7 @@ HEARTBEAT_FN MC_preptitlesequence(void)
   if (rc == 1) return (HEARTBEAT_FN) MC_showentername;    // highscore entry
 
 
-#if defined __DJGPP__
+#if defined __DJGPP__ || defined __WATCOMC__
   return (HEARTBEAT_FN) MC_showtitlesequence1;
 #else
   if(FirstTimeShowCredzFlg==0)

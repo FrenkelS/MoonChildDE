@@ -5,7 +5,7 @@
 
 #include <SDL.h>
 
-#include <cstdint>
+#include <stdint.h>
 #include <cstdio>
 #include <cstring>
 

@@ -1,8 +1,14 @@
 #ifndef __SDL__
 #define __SDL__
 
-#include <cstddef>
+#include <stdbool.h>
 #include <stdint.h>
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef uint8_t Uint8;
 typedef uint32_t Uint32;
@@ -80,9 +86,9 @@ typedef Uint64 SDL_WindowFlags;
 typedef struct SDL_Window   SDL_Window;
 typedef struct SDL_Renderer SDL_Renderer;
 
-struct SDL_Texture {
+typedef struct SDL_Texture {
   char dummy;
-};
+} SDL_Texture;
 
 typedef struct SDL_Rect {
   char dummy;
@@ -132,5 +138,11 @@ void SDL_free(void*);
 //
 
 const char *SDL_GetError(void);
+
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif

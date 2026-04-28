@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cstdint>
+#include <stdint.h>
 
 typedef void (*MovieDoneCallback)(bool naturalEnd, void *userData);
 

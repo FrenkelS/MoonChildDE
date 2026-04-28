@@ -154,7 +154,16 @@ void syncMouse() {
 }  // namespace
 
 
-[[noreturn]] void I_Error(const char *error, ...) {
+#if defined __DJGPP__
+#define _Noreturn [[noreturn]]
+#elif defined __WATCOMC__
+#define _Noreturn __declspec(aborts)
+#else
+#error unsupported compiler
+#endif
+
+
+_Noreturn void I_Error(const char *error, ...) {
   va_list argptr;
 
   static bool firstTime = true;

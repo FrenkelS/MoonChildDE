@@ -18,10 +18,12 @@
 #define MC_RANDOM(scale) (((rand()>>16)*scale)/32768)
 #define RASTCOL2(c,r,g,b)
 
-//#define RASTCOL2(c,r,g,b) _outp(0x3c8,(c));   \
-//                          _outp(0x3c9,(r)); \
-//                          _outp(0x3c9,(g)); \
-//                          _outp(0x3c9,(b))
+/*
+#define RASTCOL2(c,r,g,b) _outp(0x3c8,(c));   \
+                          _outp(0x3c9,(r)); \
+                          _outp(0x3c9,(g)); \
+                          _outp(0x3c9,(b))
+*/
 
 #define PI 3.1415926535
 

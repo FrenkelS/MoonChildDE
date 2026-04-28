@@ -1,9 +1,7 @@
-if "%DJDIR%" == "" goto error
-
 mkdir release
 
-set CFLAGS=-march=i386
-set CFLAGS=%CFLAGS% -Ofast -fomit-frame-pointer -flto -fwhole-program -Wno-attributes
+set CFLAGS=-3r -onetx -mf -bcl=dos4g -q
+@rem set CFLAGS=%CFLAGS% -wx
 
 @set GLOBOBJS=
 @set GLOBOBJS=%GLOBOBJS% dosAudio.cpp
@@ -92,13 +90,17 @@ set CFLAGS=%CFLAGS% -Ofast -fomit-frame-pointer -flto -fwhole-program -Wno-attri
 @set GLOBOBJS=%GLOBOBJS% ../moonchild/weight.cpp
 @set GLOBOBJS=%GLOBOBJS% ../moonchild/wheel.cpp
 
-g++ %GLOBOBJS% %CFLAGS% -I. -I.. -I../framewrk -I../moonchild -D__cdecl= -Wno-write-strings -L. -lzlib -o release/MOONCHLD.EXE
-strip -s release/MOONCHLD.EXE
-stubedit release/MOONCHLD.EXE dpmi=CWSDPR0.EXE
+@set GLOBOBJS=%GLOBOBJS% ../zlib/adler32.c
+@set GLOBOBJS=%GLOBOBJS% ../zlib/infblock.c
+@set GLOBOBJS=%GLOBOBJS% ../zlib/infcodes.c
+@set GLOBOBJS=%GLOBOBJS% ../zlib/inffast.c
+@set GLOBOBJS=%GLOBOBJS% ../zlib/inflate.c
+@set GLOBOBJS=%GLOBOBJS% ../zlib/inftrees.c
+@set GLOBOBJS=%GLOBOBJS% ../zlib/infutil.c
+@set GLOBOBJS=%GLOBOBJS% ../zlib/uncompr.c
+@set GLOBOBJS=%GLOBOBJS% ../zlib/zutil.c
 
-goto end
+wcl386 %GLOBOBJS% %CFLAGS% -I. -I.. -I../framewrk -I../moonchild -Dnullptr=NULL -fe=release/wc32moon.exe -fm=release/wc32moon.map
 
-:error
-@echo Set the environment variables before running this script!
-
-:end
+del *.err
+del *.obj
