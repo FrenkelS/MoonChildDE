@@ -16,14 +16,10 @@
 
 namespace {
 
-int screenWidth = 640;
-int screenHeight = 480;
-int bytesPerPixel = 4;
-int ticksPerSecond = 60;
-
-uint64_t performanceFrequency = 0;
-uint64_t tickIntervalTicks = 0;
-uint64_t nextTickTime = 0;
+const int screenWidth = 640;
+const int screenHeight = 480;
+const int bytesPerPixel = 4;
+const int ticksPerSecond = 60;
 
 
 MoviePlayer *moviePlayer = nullptr;
@@ -72,7 +68,12 @@ static void SDL_Delay(uint32_t ms) {
 #endif
 
 
-void waitUntilNextTickBoundary() {
+static uint64_t performanceFrequency = 0;
+static uint64_t tickIntervalTicks = 0;
+static uint64_t nextTickTime = 0;
+
+
+static void waitUntilNextTickBoundary(void) {
   for (;;) {
     uint64_t now = SDL_GetPerformanceCounter();
     if (now >= nextTickTime) {
@@ -86,12 +87,20 @@ void waitUntilNextTickBoundary() {
   }
 }
 
-void advanceTickSchedule() {
+
+static void advanceTickSchedule(void) {
   uint64_t now = SDL_GetPerformanceCounter();
   nextTickTime += tickIntervalTicks;
   if (now > nextTickTime + tickIntervalTicks) {
     nextTickTime = now + tickIntervalTicks;
   }
+}
+
+
+static void InitTimer(void) {
+  performanceFrequency = SDL_GetPerformanceFrequency();
+  tickIntervalTicks = performanceFrequency / (uint64_t)ticksPerSecond;
+  nextTickTime = SDL_GetPerformanceCounter();
 }
 
 
@@ -189,9 +198,7 @@ static void SDL_CreateWindow(void) {
 static void initSDL(void) {
   SDL_Init();
 
-  performanceFrequency = SDL_GetPerformanceFrequency();
-  tickIntervalTicks = performanceFrequency / (uint64_t)ticksPerSecond;
-  nextTickTime = SDL_GetPerformanceCounter();
+  InitTimer();
 
   SDL_CreateWindow();
 
