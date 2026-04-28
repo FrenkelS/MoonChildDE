@@ -1,6 +1,5 @@
-#include "Util.h"
-#include <SDL.h>
 #include <cstdio>
+#include "Util.h"
 #include "framewrk/frm_int.hpp"
 
 namespace {
@@ -9,6 +8,16 @@ char prefOrg[] = "moonchild";
 char prefApp[] = "moonchild_shell";
 
 }  // namespace
+
+
+static const char *SDL_GetBasePath(void) {
+  return NULL;
+}
+
+
+static void SDL_free(void *mem) {
+}
+
 
 // Called by the game to get the full path to a file
 char *FullPath(char *filename) {
@@ -56,6 +65,12 @@ char *FullMoviePath(char *filename) {
   }
   return buffer;
 }
+
+
+static char *SDL_GetPrefPath(const char *org, const char *app) {
+  return NULL;
+}
+
 
 // Called by the game to get the full path to a writable file (Only hiscore file)
 char *FullWritablePath(char *filename) {

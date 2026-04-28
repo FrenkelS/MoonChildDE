@@ -7,12 +7,10 @@ set CFLAGS=%CFLAGS% -Ofast -fomit-frame-pointer -flto -fwhole-program -Wno-attri
 
 @set GLOBOBJS=
 @set GLOBOBJS=%GLOBOBJS% dosAudio.cpp
+@set GLOBOBJS=%GLOBOBJS% dosGame.cpp
 @set GLOBOBJS=%GLOBOBJS% dosMain.cpp
 @set GLOBOBJS=%GLOBOBJS% dosMoviePlayer.cpp
-@set GLOBOBJS=%GLOBOBJS% dosSDL.c
 @set GLOBOBJS=%GLOBOBJS% dosUtil.cpp
-
-@set GLOBOBJS=%GLOBOBJS% ../Game.cpp
 
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/audio.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/blitbuf.cpp
@@ -92,7 +90,7 @@ set CFLAGS=%CFLAGS% -Ofast -fomit-frame-pointer -flto -fwhole-program -Wno-attri
 @set GLOBOBJS=%GLOBOBJS% ../moonchild/weight.cpp
 @set GLOBOBJS=%GLOBOBJS% ../moonchild/wheel.cpp
 
-g++ %GLOBOBJS% %CFLAGS% -I. -I.. -I../framewrk -I../moonchild -D__cdecl= -Wno-write-strings -L. -lzlib -o release/MOONCHLD.EXE
+g++ %GLOBOBJS% %CFLAGS% -I.. -I../framewrk -I../moonchild -D__cdecl= -Wno-write-strings -L. -lzlib -o release/MOONCHLD.EXE
 strip -s release/MOONCHLD.EXE
 stubedit release/MOONCHLD.EXE dpmi=CWSDPR0.EXE
 

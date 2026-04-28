@@ -5,12 +5,10 @@ set CFLAGS=-3r -onetx -mf -bcl=dos4g -q
 
 @set GLOBOBJS=
 @set GLOBOBJS=%GLOBOBJS% dosAudio.cpp
+@set GLOBOBJS=%GLOBOBJS% dosGame.cpp
 @set GLOBOBJS=%GLOBOBJS% dosMain.cpp
 @set GLOBOBJS=%GLOBOBJS% dosMoviePlayer.cpp
-@set GLOBOBJS=%GLOBOBJS% dosSDL.c
 @set GLOBOBJS=%GLOBOBJS% dosUtil.cpp
-
-@set GLOBOBJS=%GLOBOBJS% ../Game.cpp
 
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/audio.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/blitbuf.cpp
@@ -100,7 +98,7 @@ set CFLAGS=-3r -onetx -mf -bcl=dos4g -q
 @set GLOBOBJS=%GLOBOBJS% ../zlib/uncompr.c
 @set GLOBOBJS=%GLOBOBJS% ../zlib/zutil.c
 
-wcl386 %GLOBOBJS% %CFLAGS% -I. -I.. -I../framewrk -I../moonchild -Dnullptr=NULL -fe=release/wc32moon.exe -fm=release/wc32moon.map
+wcl386 %GLOBOBJS% %CFLAGS% -I.. -I../framewrk -I../moonchild -Dnullptr=NULL -fe=release/wc32moon.exe -fm=release/wc32moon.map
 
 del *.err
 del *.obj
