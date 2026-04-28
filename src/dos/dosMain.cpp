@@ -26,29 +26,6 @@ uint64_t tickIntervalTicks = 0;
 uint64_t nextTickTime = 0;
 
 
-typedef struct SDL_Window {
-  char dummy;
-} SDL_Window;
-
-
-typedef struct SDL_Renderer {
-  char dummy;
-} SDL_Renderer;
-
-
-typedef struct SDL_Texture {
-  char dummy;
-} SDL_Texture;
-
-
-typedef struct SDL_Rect {
-  char dummy;
-} SDL_Rect;
-
-
-SDL_Window *window = nullptr;
-SDL_Renderer *renderer = nullptr;
-SDL_Texture *frameTexture = nullptr;
 MoviePlayer *moviePlayer = nullptr;
 
 uint8_t *pixelBuffer = nullptr;
@@ -181,33 +158,17 @@ static void __interrupt __far I_KeyboardISR(void)
 }
 
 
-typedef uint32_t SDL_InitFlags;
-#define SDL_INIT_AUDIO 0x00000010u
-#define SDL_INIT_VIDEO 0x00000020u
-
-
-static bool SDL_Init(SDL_InitFlags flags) {
+static void SDL_Init(void) {
   replaceInterrupt(oldkeyboardisr, newkeyboardisr, KEYBOARDINT, I_KeyboardISR);
   isKeyboardIsrSet = true;
-
-  return true;
 }
 
 
-static const char *SDL_GetError(void) {
-  return "SDL_GetError() is not implemented";
-}
-
-
-typedef uint64_t SDL_WindowFlags;
-
-
+static bool isGraphicsModeSet = false;
 static uint8_t *videomemory;
 
 
-static SDL_Window *SDL_CreateWindow(const char *title, int w, int h, SDL_WindowFlags flags) {
-  static SDL_Window window;
-
+static void SDL_CreateWindow(void) {
   union REGS r;
 
 #if defined DEBUG
@@ -220,101 +181,32 @@ static SDL_Window *SDL_CreateWindow(const char *title, int w, int h, SDL_WindowF
 
   __djgpp_nearptr_enable();
   videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
-  return &window;
+
+  isGraphicsModeSet = true;
 }
 
 
-static SDL_Renderer *SDL_CreateRenderer(SDL_Window *window, const char *name) {
-  static SDL_Renderer renderer;
-  return &renderer;
-}
+static void initSDL(void) {
+  SDL_Init();
 
-
-typedef enum SDL_PixelFormat {
-  SDL_PIXELFORMAT_BGRA32 = 0x16362004u
-} SDL_PixelFormat;
-
-
-typedef enum SDL_TextureAccess {
-  SDL_TEXTUREACCESS_STREAMING = 1
-} SDL_TextureAccess;
-
-
-static SDL_Texture *SDL_CreateTexture(SDL_Renderer *renderer, SDL_PixelFormat format, SDL_TextureAccess access, int w, int h) {
-  static SDL_Texture texture;
-  return &texture;
-}
-
-
-typedef uint32_t SDL_BlendMode;
-#define SDL_BLENDMODE_NONE 0x00000000u
-
-
-static bool SDL_SetTextureBlendMode(SDL_Texture *texture, SDL_BlendMode blendMode) {
-  return false;
-}
-
-
-bool initSDL() {
-  if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
-    fprintf(stderr, "SDL_Init failed: %s\n", SDL_GetError());
-    return false;
-  }
   performanceFrequency = SDL_GetPerformanceFrequency();
   tickIntervalTicks = performanceFrequency / (uint64_t)ticksPerSecond;
   nextTickTime = SDL_GetPerformanceCounter();
 
-  window = SDL_CreateWindow("moonchild shell",
-                            screenWidth, screenHeight, 0);
-  if (!window) {
-    fprintf(stderr, "SDL_CreateWindow failed: %s\n", SDL_GetError());
-    return false;
-  }
-
-  renderer = SDL_CreateRenderer(window, "");
-  if (!renderer) {
-    fprintf(stderr, "SDL_CreateRenderer failed: %s\n", SDL_GetError());
-    return false;
-  }
-
-  frameTexture =
-      SDL_CreateTexture(renderer, SDL_PIXELFORMAT_BGRA32, SDL_TEXTUREACCESS_STREAMING,
-                        screenWidth, screenHeight);
-  if (!frameTexture) {
-    fprintf(stderr, "SDL_CreateTexture failed: %s\n", SDL_GetError());
-    return false;
-  }
-  SDL_SetTextureBlendMode(frameTexture, SDL_BLENDMODE_NONE);
+  SDL_CreateWindow();
 
   pixelBufferPitch = screenWidth * bytesPerPixel;
   pixelBuffer = new uint8_t[pixelBufferPitch * screenHeight];
   memset(pixelBuffer, 0, pixelBufferPitch * screenHeight);
 
   moviePlayer = new MoviePlayer();
-
-  return true;
 }
 
 
-static void SDL_DestroyTexture(SDL_Texture *texture) {
-}
-
-
-static void SDL_DestroyRenderer(SDL_Renderer *renderer) {
-}
-
-
-static void SDL_DestroyWindow(SDL_Window *window) {
+static void SDL_DestroyWindow(void) {
   union REGS r;
   r.w.ax = 0x0003;
   int386(0x10, &r, &r);
-}
-
-
-static void SDL_Quit(void) {
-  if (isKeyboardIsrSet) {
-    restoreInterrupt(KEYBOARDINT, oldkeyboardisr, newkeyboardisr);
-  }
 }
 
 
@@ -328,25 +220,19 @@ void shutdownSDL() {
   delete[] pixelBuffer;
   pixelBuffer = nullptr;
 
-  if (frameTexture) {
-    SDL_DestroyTexture(frameTexture);
-    frameTexture = nullptr;
+  if (isGraphicsModeSet) {
+    SDL_DestroyWindow();
   }
-  if (renderer) {
-    SDL_DestroyRenderer(renderer);
-    renderer = nullptr;
+
+  if (isKeyboardIsrSet) {
+    restoreInterrupt(KEYBOARDINT, oldkeyboardisr, newkeyboardisr);
   }
-  if (window) {
-    SDL_DestroyWindow(window);
-    window = nullptr;
-  }
-  SDL_Quit();
 }
 
 
-static bool SDL_UpdateTexture(SDL_Texture *texture, const SDL_Rect *rect, const void *pixels, int pitch) {
+void presentFrame() {
 #if defined DEBUG
-  uint8_t *src = (uint8_t*)pixels;
+  uint8_t *src = pixelBuffer;
   uint8_t *dst = videomemory;
   int x, y;
   for (y = 0; y < 200; y++) {
@@ -361,7 +247,7 @@ static bool SDL_UpdateTexture(SDL_Texture *texture, const SDL_Rect *rect, const 
   int bank_size = 65536;
   int bank_number = 0;
   int todo = 640 * 480 * 4;
-  uint8_t *memory_buffer = (uint8_t*)pixels;
+  uint8_t *memory_buffer = pixelBuffer;
 
   while (todo > 0) {
     int copy_size;
@@ -380,36 +266,6 @@ static bool SDL_UpdateTexture(SDL_Texture *texture, const SDL_Rect *rect, const 
     bank_number++;
   }
 #endif
-
-  return false;
-}
-
-
-static bool SDL_RenderClear(SDL_Renderer *renderer) {
-  return false;
-}
-
-
-typedef struct SDL_FRect {
-  char dummy;
-} SDL_FRect;
-
-
-static bool SDL_RenderTexture(SDL_Renderer *renderer, SDL_Texture *texture, const SDL_FRect *srcrect, const SDL_FRect *dstrect) {
-  return false;
-}
-
-
-static bool SDL_RenderPresent(SDL_Renderer *renderer) {
-  return false;
-}
-
-
-void presentFrame() {
-  SDL_UpdateTexture(frameTexture, nullptr, pixelBuffer, pixelBufferPitch);
-  SDL_RenderClear(renderer);
-  SDL_RenderTexture(renderer, frameTexture, nullptr, nullptr);
-  SDL_RenderPresent(renderer);
 }
 
 
@@ -571,10 +427,8 @@ int main(int argc, char **argv) {
   (void)argc;
   (void)argv;
 
-  if (!initSDL()) {
-    shutdownSDL();
-    return 1;
-  }
+  initSDL();
+
   if (!initAudio()) {
     shutdownAudio();
     shutdownSDL();
