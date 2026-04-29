@@ -9,6 +9,7 @@ set CFLAGS=-3r -onetx -mf -bcl=dos4g -q
 @set GLOBOBJS=%GLOBOBJS% dosMain.cpp
 @set GLOBOBJS=%GLOBOBJS% dosMoviePlayer.cpp
 @set GLOBOBJS=%GLOBOBJS% dosUtil.cpp
+@set GLOBOBJS=%GLOBOBJS% dosVideo.cpp
 
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/audio.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/blitbuf.cpp
@@ -17,7 +18,6 @@ set CFLAGS=-3r -onetx -mf -bcl=dos4g -q
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/pcxff.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/sprite.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/timer.cpp
-@set GLOBOBJS=%GLOBOBJS% ../framewrk/video.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/windows.cpp
 
 @set GLOBOBJS=%GLOBOBJS% ../moonchild/anim.cpp

@@ -14,11 +14,15 @@
 #define _IN_MAIN
 #include "frm_int.hpp"
 
+
+//#define DEBUG
+
+
 namespace {
 
 const int screenWidth = 640;
 const int screenHeight = 480;
-const int bytesPerPixel = 4;
+const int bytesPerPixel = 1;
 const int ticksPerSecond = 60;
 
 
@@ -184,7 +188,7 @@ static void SDL_CreateWindow(void) {
   r.w.ax = 0x0013;
 #else
   r.w.ax = 0x4F02;
-  r.w.bx = 0x112;
+  r.w.bx = 0x101;
 #endif
   int386(0x10, &r, &r);
 
@@ -244,16 +248,15 @@ void presentFrame() {
   int x, y;
   for (y = 0; y < 200; y++) {
     for (x = 0; x < 320; x++) {
-      uint8_t r = *src;
-      *dst++ = 16 + r / 16;
-      src += 8;
+      *dst++ = *src;
+      src += 2 * bytesPerPixel;
     }
-    src += 640 * 4;
+    src += screenWidth * bytesPerPixel;
   }
 #else
   int bank_size = 65536;
   int bank_number = 0;
-  int todo = 640 * 480 * 4;
+  int todo = screenWidth * screenHeight * bytesPerPixel;
   uint8_t *memory_buffer = pixelBuffer;
 
   while (todo > 0) {
