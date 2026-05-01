@@ -15,7 +15,50 @@
 #include "frm_int.hpp"
 
 
-//#define DEBUG
+//#define DEBUG_GRAPHICS
+//#define DEBUG_TIMER
+
+
+#if defined __DJGPP__
+#include <dpmi.h>
+#include <go32.h>
+#include <sys/nearptr.h>
+
+//DJGPP doesn't inline inp, outp and outpw,
+//but it does inline inportb, outportb and outportw
+#define inp(port)       inportb(port)
+#define outp(port,data) outportb(port,data)
+
+#define __far
+#define __interrupt
+#define _Noreturn [[noreturn]]
+
+#define replaceInterrupt(OldInt,NewInt,vector,handler)				\
+_go32_dpmi_get_protected_mode_interrupt_vector(vector, &OldInt);	\
+																	\
+NewInt.pm_selector = _go32_my_cs(); 								\
+NewInt.pm_offset = (uint32_t)handler;								\
+_go32_dpmi_allocate_iret_wrapper(&NewInt);							\
+_go32_dpmi_set_protected_mode_interrupt_vector(vector, &NewInt)
+
+#define restoreInterrupt(vector,OldInt,NewInt)						\
+_go32_dpmi_set_protected_mode_interrupt_vector(vector, &OldInt);	\
+_go32_dpmi_free_iret_wrapper(&NewInt);
+#elif defined __WATCOMC__
+#define __djgpp_nearptr_enable()
+#define __djgpp_conventional_base 0
+
+#define __far
+#define _Noreturn __declspec(aborts)
+
+#define replaceInterrupt(OldInt,NewInt,vector,handler)	\
+OldInt = _dos_getvect(vector);							\
+_dos_setvect(vector, handler)
+
+#define restoreInterrupt(vector,OldInt,NewInt)	_dos_setvect(vector,OldInt)
+#else
+#error unsupported compiler
+#endif
 
 
 namespace {
@@ -23,7 +66,6 @@ namespace {
 const int screenWidth = 640;
 const int screenHeight = 480;
 const int bytesPerPixel = 1;
-const int ticksPerSecond = 60;
 
 
 MoviePlayer *moviePlayer = nullptr;
@@ -41,7 +83,7 @@ void onMovieDone(bool naturalEnd, void *userData) {
 }
 
 
-#if defined DEBUG || defined __WATCOMC__
+#if defined DEBUG_TIMER || defined __WATCOMC__
 static uint64_t SDL_GetPerformanceFrequency(void) {
   return 60;
 }
@@ -75,6 +117,7 @@ static void SDL_Delay(uint32_t ms) {
 static uint64_t performanceFrequency = 0;
 static uint64_t tickIntervalTicks = 0;
 static uint64_t nextTickTime = 0;
+static const int ticksPerSecond = 60;
 
 
 static void waitUntilNextTickBoundary(void) {
@@ -106,45 +149,6 @@ static void InitTimer(void) {
   tickIntervalTicks = performanceFrequency / (uint64_t)ticksPerSecond;
   nextTickTime = SDL_GetPerformanceCounter();
 }
-
-
-#if defined __DJGPP__
-#include <dpmi.h>
-#include <go32.h>
-#include <sys/nearptr.h>
-
-#define __far
-
-//DJGPP doesn't inline inp, outp and outpw,
-//but it does inline inportb, outportb and outportw
-#define inp(port)       inportb(port)
-#define outp(port,data) outportb(port,data)
-
-#define __interrupt
-
-#define replaceInterrupt(OldInt,NewInt,vector,handler)				\
-_go32_dpmi_get_protected_mode_interrupt_vector(vector, &OldInt);	\
-																	\
-NewInt.pm_selector = _go32_my_cs(); 								\
-NewInt.pm_offset = (int32_t)handler;								\
-_go32_dpmi_allocate_iret_wrapper(&NewInt);							\
-_go32_dpmi_set_protected_mode_interrupt_vector(vector, &NewInt)
-
-#define restoreInterrupt(vector,OldInt,NewInt)						\
-_go32_dpmi_set_protected_mode_interrupt_vector(vector, &OldInt);	\
-_go32_dpmi_free_iret_wrapper(&NewInt);
-#elif defined __WATCOMC__
-#define __far
-
-#define __djgpp_nearptr_enable()
-#define __djgpp_conventional_base 0
-
-#define replaceInterrupt(OldInt,NewInt,vector,handler)	\
-OldInt = _dos_getvect(vector);							\
-_dos_setvect(vector, handler)
-
-#define restoreInterrupt(vector,OldInt,NewInt)	_dos_setvect(vector,OldInt)
-#endif
 
 
 #define KEYBOARDINT 9
@@ -184,7 +188,7 @@ static uint8_t *videomemory;
 static void SDL_CreateWindow(void) {
   union REGS r;
 
-#if defined DEBUG
+#if defined DEBUG_GRAPHICS
   r.w.ax = 0x0013;
 #else
   r.w.ax = 0x4F02;
@@ -242,16 +246,22 @@ void shutdownSDL() {
 
 
 void presentFrame() {
-#if defined DEBUG
+#if defined DEBUG_GRAPHICS
   uint8_t *src = pixelBuffer;
   uint8_t *dst = videomemory;
   int x, y;
+  uint32_t overflow = 0;
   for (y = 0; y < 200; y++) {
     for (x = 0; x < 320; x++) {
       *dst++ = *src;
       src += 2 * bytesPerPixel;
     }
     src += screenWidth * bytesPerPixel;
+    uint32_t newOverflow = overflow + 0x66000000;
+    if ((int32_t)newOverflow < (int32_t)overflow) {
+      src += screenWidth * bytesPerPixel;
+    }
+    overflow = newOverflow;
   }
 #else
   int bank_size = 65536;
@@ -297,15 +307,6 @@ void syncMouse() {
 }
 
 }  // namespace
-
-
-#if defined __DJGPP__
-#define _Noreturn [[noreturn]]
-#elif defined __WATCOMC__
-#define _Noreturn __declspec(aborts)
-#else
-#error unsupported compiler
-#endif
 
 
 _Noreturn void I_Error(const char *error, ...) {
@@ -457,7 +458,7 @@ int main(int argc, char **argv) {
             break;
           case SDL_SCANCODE_DOWN:
             keyDown(SDL_SCANCODE_DOWN);
-          break;
+            break;
           case SDL_SCANCODE_LEFT:
             keyDown(SDL_SCANCODE_LEFT);
             break;
@@ -475,7 +476,7 @@ int main(int argc, char **argv) {
             break;
           case SDL_SCANCODE_P:
             keyDown(SDL_SCANCODE_P);
-          break;
+            break;
           case SDL_SCANCODE_M: {
             char introMoviePath[] = "assets/movies/intro.mp4";
             bool movieStarted = moviePlayer->playFile(introMoviePath, onMovieDone, nullptr);
