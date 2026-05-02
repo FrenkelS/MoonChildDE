@@ -16,7 +16,7 @@
 
 
 //#define DEBUG_GRAPHICS
-//#define DEBUG_TIMER
+#define DEBUG_TIMER
 
 
 #if defined __DJGPP__
@@ -224,15 +224,15 @@ void presentFrame() {
   uint8_t *src = pixelBuffer;
   uint8_t *dst = videomemory;
   int x, y;
-  uint32_t overflow = 0;
+  uint8_t overflow = 0;
   for (y = 0; y < 200; y++) {
     for (x = 0; x < 320; x++) {
       *dst++ = *src;
       src += 2 * bytesPerPixel;
     }
     src += screenWidth * bytesPerPixel;
-    uint32_t newOverflow = overflow + 0x66000000;
-    if ((int32_t)newOverflow < (int32_t)overflow) {
+    uint8_t newOverflow = overflow + 0x66;
+    if (newOverflow < overflow) {
       src += screenWidth * bytesPerPixel;
     }
     overflow = newOverflow;
