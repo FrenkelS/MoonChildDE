@@ -84,71 +84,45 @@ void onMovieDone(bool naturalEnd, void *userData) {
 
 
 #if defined DEBUG_TIMER || defined __WATCOMC__
-static uint64_t SDL_GetPerformanceFrequency(void) {
-  return 60;
-}
-
-
-static uint64_t SDL_GetPerformanceCounter(void) {
-  static uint64_t i = 0;
-  return i++;
-}
-
-
-static void SDL_Delay(uint32_t ms) {
-}
+#define InitTimer()
+#define waitUntilNextTickBoundary()
+#define advanceTickSchedule()
 #else
-static uint64_t SDL_GetPerformanceFrequency(void) {
-  return UCLOCKS_PER_SEC;
+#define TICKS_PER_SECOND 60
+#define TICK_INTERVAL_TICKS (UCLOCKS_PER_SEC / TICKS_PER_SECOND)
+
+
+static uclock_t nextTickTime = 0;
+
+
+static void InitTimer(void) {
+  nextTickTime = uclock();
 }
-
-
-static uint64_t SDL_GetPerformanceCounter(void) {
-  return uclock();
-}
-
-
-static void SDL_Delay(uint32_t ms) {
-  delay(ms);
-}
-#endif
-
-
-static uint64_t performanceFrequency = 0;
-static uint64_t tickIntervalTicks = 0;
-static uint64_t nextTickTime = 0;
-static const int ticksPerSecond = 60;
 
 
 static void waitUntilNextTickBoundary(void) {
   for (;;) {
-    uint64_t now = SDL_GetPerformanceCounter();
+    uclock_t now = uclock();
     if (now >= nextTickTime) {
       break;
     }
-    uint64_t remaining = nextTickTime - now;
-    uint64_t remainingNs = (remaining * 1000000000ULL) / performanceFrequency;
+    uclock_t remaining = nextTickTime - now;
+    uclock_t remainingNs = (remaining * 1000000000ULL) / UCLOCKS_PER_SEC;
     if (remainingNs > 2000000ULL) {
-      SDL_Delay(1);
+      delay(1);
     }
   }
 }
 
 
 static void advanceTickSchedule(void) {
-  uint64_t now = SDL_GetPerformanceCounter();
-  nextTickTime += tickIntervalTicks;
-  if (now > nextTickTime + tickIntervalTicks) {
-    nextTickTime = now + tickIntervalTicks;
+  uclock_t now = uclock();
+  nextTickTime += TICK_INTERVAL_TICKS;
+  if (now > nextTickTime + TICK_INTERVAL_TICKS) {
+    nextTickTime = now + TICK_INTERVAL_TICKS;
   }
 }
-
-
-static void InitTimer(void) {
-  performanceFrequency = SDL_GetPerformanceFrequency();
-  tickIntervalTicks = performanceFrequency / (uint64_t)ticksPerSecond;
-  nextTickTime = SDL_GetPerformanceCounter();
-}
+#endif
 
 
 #define KEYBOARDINT 9
