@@ -7,12 +7,16 @@
 #include <time.h>
 
 #include "Audio.h"
-#include "dosGame.h"
+#include "Game.h"
 #include "MoviePlayer.h"
 #include "Util.h"
 
 #define _IN_MAIN
 #include "frm_int.hpp"
+
+#include "moonchild/globals.hpp"
+#include "moonchild/mc.hpp"
+#include "moonchild/prefs.hpp"
 
 
 //#define DEBUG_GRAPHICS
@@ -300,25 +304,16 @@ _Noreturn void I_Error(const char *error, ...) {
 }
 
 
-typedef enum SDL_EventType {
-  SDL_EVENT_QUIT              = 0x100,
-  SDL_EVENT_KEY_DOWN          = 0x300,
-  SDL_EVENT_KEY_UP            = 0x301,
-  SDL_EVENT_MOUSE_BUTTON_DOWN = 0x401,
-  SDL_EVENT_FINGER_DOWN       = 0x700
-} SDL_EventType;
+typedef enum EventType {
+  EVENT_KEY_DOWN,
+  EVENT_KEY_UP,
+  EVENT_MOUSE_BUTTON_DOWN
+} EventType;
 
-
-typedef struct SDL_KeyboardEvent {
-  SDL_Scancode scancode;
-  bool repeat;
-} SDL_KeyboardEvent;
-
-
-typedef struct SDL_Event {
-  uint32_t type;
-  SDL_KeyboardEvent key;
-} SDL_Event;
+typedef struct Event {
+  EventType type;
+  uint8_t scancode;
+} Event;
 
 
 #define SC_ESCAPE     0x01
@@ -333,9 +328,10 @@ typedef struct SDL_Event {
 #define SC_DOWNARROW  0x50
 #define SC_LEFTARROW  0x4b
 #define SC_RIGHTARROW 0x4d
+#define SC_PAUSE      0xff
 
 
-static bool SDL_PollEvent(SDL_Event *event) {
+static bool SDL_PollEvent(Event *event) {
   while (kbdtail < kbdhead)	{
     uint8_t k = keyboardqueue[kbdtail & (KBDQUEUESIZE - 1)];
     kbdtail++;
@@ -357,46 +353,22 @@ static bool SDL_PollEvent(SDL_Event *event) {
     }
 
     if (k == 0xc5 && keyboardqueue[(kbdtail - 2) & (KBDQUEUESIZE - 1)] == 0x9d) {
-      event->type         = SDL_EVENT_KEY_DOWN;
-      event->key.scancode = SDL_SCANCODE_PAUSE;
-      event->key.repeat   = false;
+      event->type     = EVENT_KEY_DOWN;
+      event->scancode = SC_PAUSE;
       return true;
     }
 
     if (k & 0x80) {
-      event->type = SDL_EVENT_KEY_UP;
+      event->type = EVENT_KEY_UP;
     } else {
-      event->type = SDL_EVENT_KEY_DOWN;
+      event->type = EVENT_KEY_DOWN;
     }
 
-    k &= 0x7f;
-    if (k == SC_F10) {
-      event->type = SDL_EVENT_QUIT;
-    }
-
-    switch (k) {
-      case SC_UPARROW:    event->key.scancode = SDL_SCANCODE_UP;      break;
-      case SC_DOWNARROW:  event->key.scancode = SDL_SCANCODE_DOWN;    break;
-      case SC_LEFTARROW:  event->key.scancode = SDL_SCANCODE_LEFT;    break;
-      case SC_RIGHTARROW: event->key.scancode = SDL_SCANCODE_RIGHT;   break;
-      case SC_SPACE:      event->key.scancode = SDL_SCANCODE_SPACE;   break;
-      case SC_ESCAPE:     event->key.scancode = SDL_SCANCODE_ESCAPE;  break;
-      case SC_E:          event->key.scancode = SDL_SCANCODE_E;       break;
-      case SC_P:          event->key.scancode = SDL_SCANCODE_P;       break;
-      case SC_M:          event->key.scancode = SDL_SCANCODE_M;       break;
-      default:            event->key.scancode = SDL_SCANCODE_UNKNOWN; break;
-    }
-
-    event->key.repeat = false;
+    event->scancode = k & 0x7f;
     return true;
   }
 
   return false;
-}
-
-
-static const bool *SDL_GetKeyboardState(int *numkeys) {
-  return NULL;
 }
 
 
@@ -416,42 +388,42 @@ int main(int argc, char **argv) {
 
   bool running = true;
   while (running) {
-    SDL_Event e;
+    Event e;
     while (SDL_PollEvent(&e)) {
-      if (e.type == SDL_EVENT_QUIT) {
+      if (e.scancode == SC_F10) {
         running = false;
       }
-      if (e.type == SDL_EVENT_KEY_DOWN && e.key.repeat == 0) {
+      if (e.type == EVENT_KEY_DOWN) {
         if (moviePlayer && moviePlayer->isPlaying()) {
           moviePlayer->stop(false);
           continue;
         }
-        switch (e.key.scancode) {
-          case SDL_SCANCODE_UP:
-            keyDown(SDL_SCANCODE_UP);
+        switch (e.scancode) {
+          case SC_UPARROW:  // move up
+            framework_EventHandle(FW_KEYDOWN,(int) prefs->upkey);
             break;
-          case SDL_SCANCODE_DOWN:
-            keyDown(SDL_SCANCODE_DOWN);
+          case SC_DOWNARROW:  // move down
+            framework_EventHandle(FW_KEYDOWN,(int) prefs->downkey);
             break;
-          case SDL_SCANCODE_LEFT:
-            keyDown(SDL_SCANCODE_LEFT);
+          case SC_LEFTARROW:  // move left
+            framework_EventHandle(FW_KEYDOWN,(int) prefs->leftkey);
             break;
-          case SDL_SCANCODE_RIGHT:
-            keyDown(SDL_SCANCODE_RIGHT);
+          case SC_RIGHTARROW:  // move right
+            framework_EventHandle(FW_KEYDOWN,(int) prefs->rightkey);
             break;
-          case SDL_SCANCODE_SPACE:
-            keyDown(SDL_SCANCODE_SPACE);
+          case SC_SPACE:   // fire or switch
+            framework_EventHandle(FW_KEYDOWN,(int) prefs->shootkey);
             break;
-          case SDL_SCANCODE_ESCAPE:
-            keyDown(SDL_SCANCODE_ESCAPE);
+          case SC_ESCAPE:  // break out of level
+            framework_EventHandle(FW_KEYDOWN,(int) 'Q');
             break;
-          case SDL_SCANCODE_E:
-            keyDown(SDL_SCANCODE_E);
+          case SC_E:  // If editor is compiled (define in mc.cpp) then this is the key to show it
+            framework_EventHandle(FW_KEYDOWN,(int) 'E');
             break;
-          case SDL_SCANCODE_P:
-            keyDown(SDL_SCANCODE_P);
+          case SC_P:  // if editor is compiled (define in mc.cpp) then this is the key to show patterns(tiles)
+            framework_EventHandle(FW_KEYDOWN,(int) 'P');
             break;
-          case SDL_SCANCODE_M: {
+          case SC_M: {
             char introMoviePath[] = "assets/movies/intro.mp4";
             bool movieStarted = moviePlayer->playFile(introMoviePath, onMovieDone, nullptr);
             if (!movieStarted) {
@@ -466,36 +438,36 @@ int main(int argc, char **argv) {
         }
       }
       if (moviePlayer && moviePlayer->isPlaying()) {
-        if (e.type == SDL_EVENT_MOUSE_BUTTON_DOWN || e.type == SDL_EVENT_FINGER_DOWN) {
+        if (e.type == EVENT_MOUSE_BUTTON_DOWN) {
           moviePlayer->stop(false);
           continue;
         }
       }
-      if (e.type == SDL_EVENT_KEY_UP && e.key.repeat == 0) {
-        switch (e.key.scancode) {
-          case SDL_SCANCODE_UP:
-            keyUp(SDL_SCANCODE_UP);
+      if (e.type == EVENT_KEY_UP) {
+        switch (e.scancode) {
+          case SC_UPARROW:  // move up
+            framework_EventHandle(FW_KEYUP,(int) prefs->upkey);
             break;
-          case SDL_SCANCODE_DOWN:
-            keyUp(SDL_SCANCODE_DOWN);
+          case SC_DOWNARROW:  // move down
+            framework_EventHandle(FW_KEYUP,(int) prefs->downkey);
             break;
-          case SDL_SCANCODE_LEFT:
-            keyUp(SDL_SCANCODE_LEFT);
+          case SC_LEFTARROW:  // move left
+            framework_EventHandle(FW_KEYUP,(int) prefs->leftkey);
             break;
-          case SDL_SCANCODE_RIGHT:
-            keyUp(SDL_SCANCODE_RIGHT);
+          case SC_RIGHTARROW:  // move right
+            framework_EventHandle(FW_KEYUP,(int) prefs->rightkey);
             break;
-          case SDL_SCANCODE_SPACE:
-            keyUp(SDL_SCANCODE_SPACE);
+          case SC_SPACE:   // fire or switch
+            framework_EventHandle(FW_KEYUP,(int) prefs->shootkey);
             break;
-          case SDL_SCANCODE_ESCAPE:
-            keyUp(SDL_SCANCODE_ESCAPE);
+          case SC_ESCAPE:  // break out of level
+            framework_EventHandle(FW_KEYUP,(int) 'Q');
             break;
-          case SDL_SCANCODE_E:
-            keyUp(SDL_SCANCODE_E);
+          case SC_E:  // If editor is compiled (define in mc.cpp) then this is the key to show it
+            framework_EventHandle(FW_KEYUP,(int) 'E');
             break;
-          case SDL_SCANCODE_P:
-            keyUp(SDL_SCANCODE_P);
+          case SC_P:  // if editor is compiled (define in mc.cpp) then this is the key to show patterns(tiles)
+            framework_EventHandle(FW_KEYUP,(int) 'P');
             break;
           default:
             break;
@@ -507,14 +479,10 @@ int main(int argc, char **argv) {
 
     waitUntilNextTickBoundary();
 
-    int keyCount = 0;
-    uint8_t *keyboardState = (uint8_t *)SDL_GetKeyboardState(&keyCount);
-    (void)keyCount;
-
     if (moviePlayer && moviePlayer->isPlaying()) {
       moviePlayer->update(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch);
     } else {
-      gameTick(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch, keyboardState);
+      gameTick(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch, nullptr);
     }
 
     if (movieDoneSignal) {

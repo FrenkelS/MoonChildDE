@@ -98,7 +98,7 @@ set CFLAGS=-3r -onetx -mf -bcl=dos4g -q
 @set GLOBOBJS=%GLOBOBJS% ../zlib/uncompr.c
 @set GLOBOBJS=%GLOBOBJS% ../zlib/zutil.c
 
-wcl386 %GLOBOBJS% %CFLAGS% -I.. -I../framewrk -I../moonchild -Dnullptr=NULL -fe=release/wc32moon.exe -fm=release/wc32moon.map
+wcl386 %GLOBOBJS% %CFLAGS% -I. -I.. -I../framewrk -I../moonchild -Dnullptr=NULL -fe=release/wc32moon.exe -fm=release/wc32moon.map
 
 del *.err
 del *.obj
