@@ -184,8 +184,6 @@ static void SDL_CreateWindow(void) {
 static void initSDL(void) {
   SDL_Init();
 
-  InitTimer();
-
   SDL_CreateWindow();
 
   pixelBufferPitch = screenWidth * bytesPerPixel;
@@ -372,9 +370,23 @@ static bool SDL_PollEvent(Event *event) {
 }
 
 
+static int myargc;
+static char **myargv;
+
+
+static int M_CheckParm(char *check) {
+  for (int i = 1; i < myargc; i++) {
+    if (!stricmp(check, myargv[i])) {
+      return i;
+    }
+  }
+  return 0;
+}
+
+
 int main(int argc, char **argv) {
-  (void)argc;
-  (void)argv;
+  myargc = argc;
+  myargv = argv;
 
   initSDL();
 
@@ -385,6 +397,26 @@ int main(int argc, char **argv) {
   }
 
   initMoonChild(pixelBuffer, screenWidth, screenHeight, moviePlayer);
+
+  if (M_CheckParm("-timedemo")) {
+    extern HEARTBEAT_FN MC_startdemo(void);
+    extern UINT16 ingameflg;
+    static int frames;
+    heartbeat = (HEARTBEAT_FN)MC_startdemo;
+    clock_t starttime = clock();
+    do {
+      gameTick(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch, nullptr);
+      presentFrame();
+      frames++;
+    } while (ingameflg);
+    clock_t endtime = clock();
+    int seconds = (endtime - starttime) / CLOCKS_PER_SEC;
+    int fps = frames * 1000 * CLOCKS_PER_SEC / (endtime - starttime);
+    I_Error("%i frames in %i seconds = %i.%.3i frames per second",
+            frames, seconds, fps / 1000, fps % 1000);
+  }
+
+  InitTimer();
 
   bool running = true;
   while (running) {
