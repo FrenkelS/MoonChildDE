@@ -291,6 +291,7 @@ _Noreturn void I_Error(const char *error, ...) {
   static bool firstTime = true;
   if (firstTime) {
     firstTime = false;
+    shutdownAudio();
     shutdownSDL();
   }
 
