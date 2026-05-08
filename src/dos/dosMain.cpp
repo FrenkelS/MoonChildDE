@@ -410,10 +410,10 @@ int main(int argc, char **argv) {
       frames++;
     } while (ingameflg);
     clock_t endtime = clock();
-    int seconds = (endtime - starttime) / CLOCKS_PER_SEC;
+    int seconds = (endtime - starttime) * 1000 / CLOCKS_PER_SEC;
     int fps = frames * 1000 * CLOCKS_PER_SEC / (endtime - starttime);
-    I_Error("%i frames in %i seconds = %i.%.3i frames per second",
-            frames, seconds, fps / 1000, fps % 1000);
+    I_Error("%i frames in %i.%.3i seconds = %i.%.3i frames per second",
+            frames, seconds / 1000, seconds % 1000, fps / 1000, fps % 1000);
   }
 
   InitTimer();
