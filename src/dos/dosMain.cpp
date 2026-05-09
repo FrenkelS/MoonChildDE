@@ -10,6 +10,7 @@
 #include "Game.h"
 #include "MoviePlayer.h"
 #include "Util.h"
+#include "vesa.h"
 
 #define _IN_MAIN
 #include "frm_int.hpp"
@@ -19,8 +20,9 @@
 #include "moonchild/prefs.hpp"
 
 
-//#define DEBUG_GRAPHICS
-#define DEBUG_TIMER
+//#define MODE_13H
+//#define NOLFB
+#define NO_TIMER
 
 
 #if defined __DJGPP__
@@ -65,6 +67,9 @@ _dos_setvect(vector, handler)
 #endif
 
 
+_Noreturn void I_Error(const char *error, ...);
+
+
 namespace {
 
 const int screenWidth = 640;
@@ -87,7 +92,7 @@ void onMovieDone(bool naturalEnd, void *userData) {
 }
 
 
-#if defined DEBUG_TIMER || defined __WATCOMC__
+#if defined NO_TIMER || defined __WATCOMC__
 #define InitTimer()
 #define waitUntilNextTickBoundary()
 #define advanceTickSchedule()
@@ -164,20 +169,38 @@ static uint8_t *videomemory;
 
 
 static void SDL_CreateWindow(void) {
+#if defined MODE_13H
   union REGS r;
-
-#if defined DEBUG_GRAPHICS
   r.w.ax = 0x0013;
-#else
-  r.w.ax = 0x4F02;
-  r.w.bx = 0x101;
-#endif
   int386(0x10, &r, &r);
-
   __djgpp_nearptr_enable();
   videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
+#elif defined NOLFB
+  union REGS r;
+  r.w.ax = 0x4F02;
+  r.w.bx = 0x101;
+  int386(0x10, &r, &r);
+  __djgpp_nearptr_enable();
+  videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
+#else
+  videomemory = VBEinit640x480x8();
+  if (videomemory == nullptr) {
+    I_Error("Linear frame buffer not supported");
+  }
+#endif
 
   isGraphicsModeSet = true;
+}
+
+
+static void SDL_DestroyWindow(void) {
+#if !defined MODE_13H && !defined NOLFB
+  VBEshutdown();
+#endif
+
+  union REGS r;
+  r.w.ax = 0x0003;
+  int386(0x10, &r, &r);
 }
 
 
@@ -191,13 +214,6 @@ static void initSDL(void) {
   memset(pixelBuffer, 0, pixelBufferPitch * screenHeight);
 
   moviePlayer = new MoviePlayer();
-}
-
-
-static void SDL_DestroyWindow(void) {
-  union REGS r;
-  r.w.ax = 0x0003;
-  int386(0x10, &r, &r);
 }
 
 
@@ -222,7 +238,7 @@ void shutdownSDL() {
 
 
 void presentFrame() {
-#if defined DEBUG_GRAPHICS
+#if defined MODE_13H
   uint8_t *src = pixelBuffer;
   uint8_t *dst = videomemory;
   int x, y;
@@ -239,7 +255,7 @@ void presentFrame() {
     }
     overflow = newOverflow;
   }
-#else
+#elif defined NOLFB
   int bank_size = 65536;
   int bank_number = 0;
   int todo = screenWidth * screenHeight * bytesPerPixel;
@@ -261,6 +277,8 @@ void presentFrame() {
     memory_buffer += copy_size;
     bank_number++;
   }
+#else
+  memcpy(videomemory, pixelBuffer, screenWidth * screenHeight * bytesPerPixel);
 #endif
 }
 

@@ -12,6 +12,7 @@ set CFLAGS=%CFLAGS% -Ofast -fomit-frame-pointer -flto -fwhole-program -Wno-attri
 @set GLOBOBJS=%GLOBOBJS% dosMoviePlayer.cpp
 @set GLOBOBJS=%GLOBOBJS% dosUtil.cpp
 @set GLOBOBJS=%GLOBOBJS% dosVideo.cpp
+@set GLOBOBJS=%GLOBOBJS% vesa.c
 
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/audio.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/blitbuf.cpp
