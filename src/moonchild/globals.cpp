@@ -408,6 +408,7 @@ VG_DLL_LIST *objects;  /* list of all objects currently active */
 OBJECT *hoi; 
 
 
+// (short) (sin(((PI*2)/256)*i) * 128)
 const INT16 sinus128[256] =   /* sinustab(256 vals)  with amplitude 128 */
 {
   0, 3, 6, 9, 12, 15, 18, 21,
@@ -448,6 +449,7 @@ const INT16 sinus128[256] =   /* sinustab(256 vals)  with amplitude 128 */
 };
 
 
+// (short) (sin(((PI*2)/1024)*i) * 512)
 const INT16 sinus512[1024] =  /* sinustab(1024 vals) with amplitude 512 */
 {
   0, 3, 6, 9, 12, 15, 18, 21,
