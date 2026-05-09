@@ -11,7 +11,6 @@ set CFLAGS=-3r -onetx -mf -bcl=dos4g -q
 @set GLOBOBJS=%GLOBOBJS% dosUtil.cpp
 @set GLOBOBJS=%GLOBOBJS% dosVideo.cpp
 
-@set GLOBOBJS=%GLOBOBJS% ../framewrk/audio.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/blitbuf.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/fastfile.cpp
 @set GLOBOBJS=%GLOBOBJS% ../framewrk/movie.cpp
