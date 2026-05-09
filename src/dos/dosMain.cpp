@@ -22,7 +22,6 @@
 
 //#define MODE_13H
 //#define NOLFB
-#define NO_TIMER
 
 
 #if defined __DJGPP__
@@ -92,7 +91,21 @@ void onMovieDone(bool naturalEnd, void *userData) {
 }
 
 
-#if defined NO_TIMER || defined __WATCOMC__
+static int myargc;
+static char **myargv;
+
+
+static int M_CheckParm(char *check) {
+  for (int i = 1; i < myargc; i++) {
+    if (!stricmp(check, myargv[i])) {
+      return i;
+    }
+  }
+  return 0;
+}
+
+
+#if defined __WATCOMC__
 #define InitTimer()
 #define waitUntilNextTickBoundary()
 #define advanceTickSchedule()
@@ -101,15 +114,23 @@ void onMovieDone(bool naturalEnd, void *userData) {
 #define TICK_INTERVAL_TICKS (UCLOCKS_PER_SEC / TICKS_PER_SECOND)
 
 
+static bool noTimer = false;
 static uclock_t nextTickTime = 0;
 
 
 static void InitTimer(void) {
+  noTimer = M_CheckParm("-notimer");
+  if (noTimer)
+    return;
+
   nextTickTime = uclock();
 }
 
 
 static void waitUntilNextTickBoundary(void) {
+  if (noTimer)
+    return;
+
   for (;;) {
     uclock_t now = uclock();
     if (now >= nextTickTime) {
@@ -125,6 +146,9 @@ static void waitUntilNextTickBoundary(void) {
 
 
 static void advanceTickSchedule(void) {
+  if (noTimer)
+    return;
+
   uclock_t now = uclock();
   nextTickTime += TICK_INTERVAL_TICKS;
   if (now > nextTickTime + TICK_INTERVAL_TICKS) {
@@ -386,20 +410,6 @@ static bool SDL_PollEvent(Event *event) {
   }
 
   return false;
-}
-
-
-static int myargc;
-static char **myargv;
-
-
-static int M_CheckParm(char *check) {
-  for (int i = 1; i < myargc; i++) {
-    if (!stricmp(check, myargv[i])) {
-      return i;
-    }
-  }
-  return 0;
 }
 
 
