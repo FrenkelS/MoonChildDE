@@ -20,10 +20,6 @@
 #include "moonchild/prefs.hpp"
 
 
-//#define MODE_13H
-//#define NOLFB
-
-
 #if defined __DJGPP__
 #include <dpmi.h>
 #include <go32.h>
@@ -114,8 +110,8 @@ static int M_CheckParm(char *check) {
 #define TICK_INTERVAL_TICKS (UCLOCKS_PER_SEC / TICKS_PER_SECOND)
 
 
-static bool noTimer = false;
-static uclock_t nextTickTime = 0;
+static bool noTimer;
+static uclock_t nextTickTime;
 
 
 static void InitTimer(void) {
@@ -188,43 +184,104 @@ static void SDL_Init(void) {
 }
 
 
+typedef enum
+{
+  LFB,
+  NOLFB,
+  MODE13H
+} videocardsenum_t;
+
+
+static videocardsenum_t videocard;
 static bool isGraphicsModeSet = false;
 static uint8_t *videomemory;
 
 
 static void SDL_CreateWindow(void) {
-#if defined MODE_13H
-  union REGS r;
-  r.w.ax = 0x0013;
-  int386(0x10, &r, &r);
-  __djgpp_nearptr_enable();
-  videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
-#elif defined NOLFB
-  union REGS r;
-  r.w.ax = 0x4F02;
-  r.w.bx = 0x101;
-  int386(0x10, &r, &r);
-  __djgpp_nearptr_enable();
-  videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
-#else
-  videomemory = VBEinit640x480x8();
-  if (videomemory == nullptr) {
-    I_Error("Linear frame buffer not supported");
+  if (M_CheckParm("-mode13h")) {
+    videocard = MODE13H;
+  } else if (M_CheckParm("-nolfb")) {
+    videocard = NOLFB;
+  } else {
+    videocard = LFB;
   }
-#endif
+
+  if (videocard == LFB) {
+    videomemory = VBEinit640x480x8();
+    if (videomemory == nullptr) {
+      I_Error("Linear frame buffer not supported. Try command line argument -nolfb");
+    }
+  } else {
+    union REGS r;
+    if (videocard == MODE13H) {
+      r.w.ax = 0x0013;
+    } else {
+      r.w.ax = 0x4F02;
+      r.w.bx = 0x101;
+    }
+
+    int386(0x10, &r, &r);
+    __djgpp_nearptr_enable();
+    videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
+  }
 
   isGraphicsModeSet = true;
 }
 
 
 static void SDL_DestroyWindow(void) {
-#if !defined MODE_13H && !defined NOLFB
-  VBEshutdown();
-#endif
+  if (videocard == LFB) {
+    VBEshutdown();
+  }
 
   union REGS r;
   r.w.ax = 0x0003;
   int386(0x10, &r, &r);
+}
+
+
+void presentFrame() {
+  if (videocard == LFB) {
+    memcpy(videomemory, pixelBuffer, screenWidth * screenHeight * bytesPerPixel);
+  } else if (videocard == NOLFB) {
+    int bank_size = 65536;
+    int bank_number = 0;
+    int todo = screenWidth * screenHeight * bytesPerPixel;
+    uint8_t *memory_buffer = pixelBuffer;
+
+    while (todo > 0) {
+      int copy_size;
+      union REGS r;
+      r.w.ax = 0x4F05;
+      r.w.bx = 0;
+      r.w.dx = bank_number;
+      int386(0x10, &r, &r);
+
+      copy_size = todo > bank_size ? bank_size : todo;
+
+      memcpy(videomemory, memory_buffer, copy_size);
+
+      todo          -= copy_size;
+      memory_buffer += copy_size;
+      bank_number++;
+    }
+  } else {
+    uint8_t *src = pixelBuffer;
+    uint8_t *dst = videomemory;
+    uint8_t overflow = 0;
+    for (int y = 0; y < 200; y++) {
+      for (int x = 0; x < 320; x++) {
+        *dst++ = *src;
+        src += 2 * bytesPerPixel;
+      }
+      src += screenWidth * bytesPerPixel;
+      uint8_t newOverflow = overflow + 0x66;
+      if (newOverflow < overflow) {
+        src += screenWidth * bytesPerPixel;
+      }
+      overflow = newOverflow;
+    }
+  }
 }
 
 
@@ -258,52 +315,6 @@ void shutdownSDL() {
   if (isKeyboardIsrSet) {
     restoreInterrupt(KEYBOARDINT, oldkeyboardisr, newkeyboardisr);
   }
-}
-
-
-void presentFrame() {
-#if defined MODE_13H
-  uint8_t *src = pixelBuffer;
-  uint8_t *dst = videomemory;
-  int x, y;
-  uint8_t overflow = 0;
-  for (y = 0; y < 200; y++) {
-    for (x = 0; x < 320; x++) {
-      *dst++ = *src;
-      src += 2 * bytesPerPixel;
-    }
-    src += screenWidth * bytesPerPixel;
-    uint8_t newOverflow = overflow + 0x66;
-    if (newOverflow < overflow) {
-      src += screenWidth * bytesPerPixel;
-    }
-    overflow = newOverflow;
-  }
-#elif defined NOLFB
-  int bank_size = 65536;
-  int bank_number = 0;
-  int todo = screenWidth * screenHeight * bytesPerPixel;
-  uint8_t *memory_buffer = pixelBuffer;
-
-  while (todo > 0) {
-    int copy_size;
-    union REGS r;
-    r.w.ax = 0x4F05;
-    r.w.bx = 0;
-    r.w.dx = bank_number;
-    int386(0x10, &r, &r);
-
-    copy_size = todo > bank_size ? bank_size : todo;
-
-    memcpy(videomemory, memory_buffer, copy_size);
-
-    todo          -= copy_size;
-    memory_buffer += copy_size;
-    bank_number++;
-  }
-#else
-  memcpy(videomemory, pixelBuffer, screenWidth * screenHeight * bytesPerPixel);
-#endif
 }
 
 
