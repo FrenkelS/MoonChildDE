@@ -25,7 +25,6 @@
                           _outp(0x3c9,(b))
 */
 
-#define PI 3.1415926535
 
 /* Various typedefs */
 typedef struct LEVEL_DESCR LEVEL_DESCR;

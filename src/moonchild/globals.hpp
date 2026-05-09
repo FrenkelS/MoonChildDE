@@ -248,8 +248,8 @@ extern INT16 prefs_ahead;     /* how much pixels must screen look ahead? */
 extern INT16 prefs_aheadmax;  /* what's the maximum ?!? */
 extern VG_DLL_LIST   *objects;  /* list of all objects currently active */
 extern OBJECT *hoi; 
-extern INT16 sinus128[256];     /* sinustab(256 vals)  with amplitude 128 */
-extern INT16 sinus512[1024];    /* sinustab(1024 vals) with amplitude 512 */
+extern const INT16 sinus128[256];     /* sinustab(256 vals)  with amplitude 128 */
+extern const INT16 sinus512[1024];    /* sinustab(1024 vals) with amplitude 512 */
 
 extern BYTE   *recbuf;        //pointer to start of recorded data
 extern BYTE   *recpnt;        //points to current location in recbuf

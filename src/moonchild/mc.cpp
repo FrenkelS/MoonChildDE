@@ -99,7 +99,6 @@ int	  FirstTimeShowCredzFlg;
 //#include <fstream.h>
 #include <frm_wrk.hpp>
 //#include <conio.h>
-#include <math.h>
 #include <mc.hpp>
 #include <vgdll.hpp>
 #include <prefs.hpp>
@@ -5356,17 +5355,6 @@ void glob_init(void)
   maxlevel = 0;
   cheatmode = 0;
 
-  log_out("calcing a 256 sine");
-  for (i=0; i<256; i++)
-    {
-      sinus128[i] = (short) (sin(((PI*2)/256)*i) * 128);
-    }
-
-  log_out("calcing a 1024 sine");
-  for (i=0; i<1024; i++)
-    {
-      sinus512[i] = (short) (sin(((PI*2)/1024)*i) * 512);
-    }
   srand(0);   //time()
 
   log_out("allocing memory for dots");
