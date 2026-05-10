@@ -69,13 +69,11 @@ namespace {
 
 const int screenWidth = 640;
 const int screenHeight = 480;
-const int bytesPerPixel = 1;
 
 
 MoviePlayer *moviePlayer = nullptr;
 
 uint8_t *pixelBuffer = nullptr;
-int pixelBufferPitch = 0;
 
 bool movieFinishedNaturally = false;
 bool movieDoneSignal = false;
@@ -184,10 +182,31 @@ static void SDL_Init(void) {
 }
 
 
+#define SC_INDEX                0x3c4
+#define SC_RESET                0
+#define SC_MAPMASK              2
+#define SC_MEMMODE              4
+
+#define CRTC_INDEX              0x3d4
+#define CRTC_V_TOTAL            0x06
+#define CRTC_OVERFLOW           0x07
+#define CRTC_MAXSCANLINE        0x09
+#define CRTC_V_RETRACE          0x10
+#define CRTC_V_ENDRETRACE       0x11
+#define CRTC_V_DISPEND          0x12
+#define CRTC_UNDERLINE          0x14
+#define CRTC_V_BLANK            0x15
+#define CRTC_V_ENDBLANK         0x16
+#define CRTC_MODE               0x17
+
+#define MISC_OUTPUT             0x3c2
+
+
 typedef enum
 {
   LFB,
   NOLFB,
+  MODEX,
   MODE13H
 } videocardsenum_t;
 
@@ -200,6 +219,8 @@ static uint8_t *videomemory;
 static void SDL_CreateWindow(void) {
   if (M_CheckParm("-mode13h")) {
     videocard = MODE13H;
+  } else if (M_CheckParm("-modex")){
+    videocard = MODEX;
   } else if (M_CheckParm("-nolfb")) {
     videocard = NOLFB;
   } else {
@@ -211,18 +232,66 @@ static void SDL_CreateWindow(void) {
     if (videomemory == nullptr) {
       I_Error("Linear frame buffer not supported. Try command line argument -nolfb");
     }
-  } else {
+  } else if (videocard == NOLFB) {
     union REGS r;
-    if (videocard == MODE13H) {
-      r.w.ax = 0x0013;
-    } else {
-      r.w.ax = 0x4F02;
-      r.w.bx = 0x101;
+    r.w.ax = 0x4F02;
+    r.w.bx = 0x101;
+    int386(0x10, &r, &r);
+    if (r.w.ax != 0x004F) {
+        I_Error("VESA not supported. Try command line argument -modex or -mode13h");
     }
 
+    __djgpp_nearptr_enable();
+    videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
+  } else {
+    union REGS r;
+    r.w.ax = 0x0013;
     int386(0x10, &r, &r);
     __djgpp_nearptr_enable();
     videomemory = (uint8_t*)0xA0000 + __djgpp_conventional_base;
+
+    if (videocard == MODEX) {
+      // This code is based on Michael Abrash's Graphics Programming Black Book, Special Edition
+      // Chapter 47 -- Mode X: 256-Color VGA Magic
+      // https://github.com/jagregory/abrash-black-book/blob/master/src/chapter-47.md
+
+      // disable chain4 mode
+      outp(SC_INDEX, SC_MEMMODE);
+      outp(SC_INDEX + 1, 6);
+
+      // synchronous reset while setting Misc Output
+      //  for safety, even though clock unchanged
+      outp(SC_INDEX, SC_RESET);
+      outp(SC_INDEX + 1, 1);
+
+      // select 25 MHz dot clock & 60 Hz scanning rate
+      outp(MISC_OUTPUT, 0xe3);
+
+      // undo reset (restart sequencer)
+      outp(SC_INDEX, SC_RESET);
+      outp(SC_INDEX + 1, 3);
+
+      // remove write protect on various CRTC registers
+      outp(CRTC_INDEX, CRTC_V_ENDRETRACE);
+      outp(CRTC_INDEX + 1, inp(CRTC_INDEX + 1) & 0x7f);
+
+      outp(CRTC_INDEX, CRTC_V_TOTAL);      outp(CRTC_INDEX + 1, 0x0d); // vertical total
+      outp(CRTC_INDEX, CRTC_OVERFLOW);     outp(CRTC_INDEX + 1, 0x3e); // overflow (bit 8 of vertical counts)
+      outp(CRTC_INDEX, CRTC_MAXSCANLINE);  outp(CRTC_INDEX + 1, 0x41); // cell height (2 to double-scan)
+      outp(CRTC_INDEX, CRTC_V_RETRACE);    outp(CRTC_INDEX + 1, 0xea); // v sync start
+      outp(CRTC_INDEX, CRTC_V_ENDRETRACE); outp(CRTC_INDEX + 1, 0xac); // v sync end and protect cr0-cr7
+      outp(CRTC_INDEX, CRTC_V_DISPEND);    outp(CRTC_INDEX + 1, 0xdf); // vertical displayed
+      outp(CRTC_INDEX, CRTC_UNDERLINE);    outp(CRTC_INDEX + 1, 0x00); // turn off dword mode
+      outp(CRTC_INDEX, CRTC_V_BLANK);      outp(CRTC_INDEX + 1, 0xe7); // v blank start
+      outp(CRTC_INDEX, CRTC_V_ENDBLANK);   outp(CRTC_INDEX + 1, 0x06); // v blank end
+      outp(CRTC_INDEX, CRTC_MODE);         outp(CRTC_INDEX + 1, 0xe3); // turn on byte mode
+
+      // enable writes to all four planes
+      outp(SC_INDEX, SC_MAPMASK);
+      outp(SC_INDEX + 1, 0x0f);
+
+      memset(videomemory, 0, 0xffff);
+    }
   }
 
   isGraphicsModeSet = true;
@@ -242,14 +311,14 @@ static void SDL_DestroyWindow(void) {
 
 void presentFrame() {
   if (videocard == LFB) {
-    memcpy(videomemory, pixelBuffer, screenWidth * screenHeight * bytesPerPixel);
+    memcpy(videomemory, pixelBuffer, screenWidth * screenHeight);
   } else if (videocard == NOLFB) {
-    int bank_size = 65536;
-    int bank_number = 0;
-    int todo = screenWidth * screenHeight * bytesPerPixel;
-    uint8_t *memory_buffer = pixelBuffer;
+    int bank_size           = 65536;
+    int bank_number         = 0;
+    int bytes_to_copy_count = screenWidth * screenHeight;
+    uint8_t *src            = pixelBuffer;
 
-    while (todo > 0) {
+    while (bytes_to_copy_count > 0) {
       int copy_size;
       union REGS r;
       r.w.ax = 0x4F05;
@@ -257,27 +326,40 @@ void presentFrame() {
       r.w.dx = bank_number;
       int386(0x10, &r, &r);
 
-      copy_size = todo > bank_size ? bank_size : todo;
+      copy_size = bytes_to_copy_count > bank_size ? bank_size : bytes_to_copy_count;
 
-      memcpy(videomemory, memory_buffer, copy_size);
+      memcpy(videomemory, src, copy_size);
 
-      todo          -= copy_size;
-      memory_buffer += copy_size;
+      bytes_to_copy_count -= copy_size;
+      src                 += copy_size;
       bank_number++;
     }
-  } else {
+  } else if (videocard == MODEX) {
+    for (int p = 0; p < 4; p++) {
+      outp(SC_INDEX + 1, 1 << p);
+      uint8_t *src = pixelBuffer + p * 2;
+      volatile uint8_t *dst = videomemory;
+      for (int y = 0; y < 240; y++) {
+        for (int x = 0; x < 320 / 4; x++) {
+          *dst++ = *src;
+          src += 8;
+        }
+        src += screenWidth;
+      }
+    }
+  } else { // MODE13H
     uint8_t *src = pixelBuffer;
     uint8_t *dst = videomemory;
     uint8_t overflow = 0;
     for (int y = 0; y < 200; y++) {
       for (int x = 0; x < 320; x++) {
         *dst++ = *src;
-        src += 2 * bytesPerPixel;
+        src += 2;
       }
-      src += screenWidth * bytesPerPixel;
+      src += screenWidth;
       uint8_t newOverflow = overflow + 0x66;
       if (newOverflow < overflow) {
-        src += screenWidth * bytesPerPixel;
+        src += screenWidth;
       }
       overflow = newOverflow;
     }
@@ -290,9 +372,8 @@ static void initSDL(void) {
 
   SDL_CreateWindow();
 
-  pixelBufferPitch = screenWidth * bytesPerPixel;
-  pixelBuffer = new uint8_t[pixelBufferPitch * screenHeight];
-  memset(pixelBuffer, 0, pixelBufferPitch * screenHeight);
+  pixelBuffer = new uint8_t[screenWidth * screenHeight];
+  memset(pixelBuffer, 0, screenWidth * screenHeight);
 
   moviePlayer = new MoviePlayer();
 }
@@ -445,7 +526,7 @@ int main(int argc, char **argv) {
     heartbeat = (HEARTBEAT_FN)MC_startdemo;
     clock_t starttime = clock();
     do {
-      gameTick(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch, nullptr);
+      gameTick(pixelBuffer, screenWidth, screenHeight, screenWidth, nullptr);
       presentFrame();
       frames++;
     } while (ingameflg);
@@ -552,9 +633,9 @@ int main(int argc, char **argv) {
     waitUntilNextTickBoundary();
 
     if (moviePlayer && moviePlayer->isPlaying()) {
-      moviePlayer->update(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch);
+      moviePlayer->update(pixelBuffer, screenWidth, screenHeight, screenWidth);
     } else {
-      gameTick(pixelBuffer, screenWidth, screenHeight, pixelBufferPitch, nullptr);
+      gameTick(pixelBuffer, screenWidth, screenHeight, screenWidth, nullptr);
     }
 
     if (movieDoneSignal) {

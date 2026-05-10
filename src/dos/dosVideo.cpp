@@ -673,17 +673,17 @@ Cvideo &Cvideo::palette_index(BYTE *palette, UINT16 startcol, UINT16 numcol)
 #endif
 
 
+#define PEL_WRITE_ADR   0x3c8
+#define PEL_DATA        0x3c9
+
+
 void Cvideo::ConvertPalToDib(void)
 {
-	unsigned short r,g,b;
-	int i;
-	outp(0x3c8, 0);
-	for(i=0;i<256; i++)
+	UBYTE *src = m_Palette;
+	outp(PEL_WRITE_ADR, 0);
+	for (int i = 0; i < 256 * 3; i++)
 	{
-		unsigned int t;
-		outp(0x3c9, m_Palette[i*3 + 0] >> 2);
-		outp(0x3c9, m_Palette[i*3 + 1] >> 2);
-		outp(0x3c9, m_Palette[i*3 + 2] >> 2);
+		outp(PEL_DATA, *src++ >> 2);
 	}
 }
 
