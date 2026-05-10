@@ -89,13 +89,13 @@ static int myargc;
 static char **myargv;
 
 
-static int M_CheckParm(char *check) {
+static bool M_CheckParm(char *check) {
   for (int i = 1; i < myargc; i++) {
     if (!stricmp(check, myargv[i])) {
-      return i;
+      return true;
     }
   }
-  return 0;
+  return false;
 }
 
 
