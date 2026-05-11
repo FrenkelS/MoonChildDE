@@ -17,6 +17,7 @@ Download Moon Child DE [here](https://github.com/FrenkelS/MoonChildDE/releases).
 |Command line argument|Effect                                                    |
 |---------------------|----------------------------------------------------------|
 |-nolfb               |Disable linear frame buffer -> use bank switching         |
+|-modex320x480        |Use Mode X   320x480                                      |
 |-modex               |Use Mode X   320x240                                      |
 |-mode13h             |Use Mode 13h 320x200                                      |
 |-notimer             |Disable timer -> run as fast as possible                  |
