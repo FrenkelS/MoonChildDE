@@ -377,7 +377,7 @@ static void SDL_CreateWindow(void) {
     r.w.bx = 0x101;
     int386(0x10, &r, &r);
     if (r.w.ax != 0x004F) {
-        I_Error("VESA not supported. Try command line argument -modex or -mode13h");
+        I_Error("VESA not supported. Try command line argument -modex320x480, -modex or -mode13h");
     }
 
     __djgpp_nearptr_enable();
